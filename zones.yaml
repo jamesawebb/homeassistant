@@ -1,0 +1,72 @@
+#------------------------------
+# Schools
+#------------------------------
+
+- name: Brigidine
+  latitude: -33.7217192
+  longitude: 151.1727114
+  icon: mdi:school
+
+- name: Marist
+  latitude: -33.8314201
+  longitude: 151.2076396
+  radius: 65
+  icon: mdi:school
+
+- name: TAFE
+  latitude: -33.821433
+  longitude: 151.187914
+  radius: 150
+  icon: mdi:school
+
+- name: NIDA
+  latitude: -33.9159311
+  longitude: 151.2255485
+  radius: 150
+  icon: mdi:school
+
+#------------------------------
+# Work
+#------------------------------
+
+- name: PWC
+  latitude: -33.863927
+  longitude: 151.201887
+  radius: 80
+  icon: mdi:domain
+
+- name: Google
+  latitude: -33.867488
+  longitude: 151.198031
+  radius: 75
+  icon: mdi:google
+
+#------------------------------
+# Train stations
+#------------------------------
+
+- name: Hornsby
+  latitude: -33.7034846
+  longitude: 151.098357
+  icon: mdi:train
+
+- name: N. Sydney
+  latitude: -33.8411482
+  longitude: 151.2074215
+  radius: 65
+  icon: mdi:train
+
+- name: Gordon
+  latitude: -33.7561173
+  longitude: 151.1544907
+  icon: mdi:train
+
+- name: Central
+  latitude: -33.883647
+  longitude: 151.206222
+  icon: mdi:train
+
+- name: Waitara
+  latitude: -33.7101786
+  longitude: 151.1039185
+  icon: mdi:train

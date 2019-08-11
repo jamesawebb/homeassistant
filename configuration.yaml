@@ -1,0 +1,197 @@
+# ================
+# Core
+# ================
+
+homeassistant:
+  customize: !include customize.yaml
+
+default_config:
+
+http:
+  base_url: https://famidamily.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+frontend:
+  themes: !include themes/dark_cyan.yaml
+
+logbook:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+
+hacs:
+  token: !secret my_github_hacs_token
+
+alert: !include alerts.yaml
+automation: !include_dir_merge_list automations
+notify: !include notifications.yaml
+group: !include groups.yaml
+script: !include scripts.yaml
+
+
+# ================
+# Geolocation
+# ================
+
+zone: !include zones.yaml
+
+owntracks:
+
+geo_location:
+  - platform: nsw_rural_fire_service_feed
+    categories:
+      - 'Emergency Warning'
+      - 'Watch and Act'
+      - 'Advice'
+
+proximity:
+  home:
+    ignored_zones:
+      - work
+    devices:
+      - person.james
+      - person.chianti
+      - person.kirwin
+      - person.tania
+    tolerance: 150
+    unit_of_measurement: m
+  marist:
+    zone: marist
+    devices:
+      - person.kirwin
+    tolerance: 150
+    unit_of_measurement: m
+  waitara:
+    zone: waitara
+    devices:
+      - person.chianti
+      - person.kirwin
+      - person.tania
+    tolerance: 150
+    unit_of_measurement: m
+
+device_tracker: !include device_tracker.yaml
+
+
+# ================
+# Device
+# ================
+
+sensor: !include sensors.yaml
+binary_sensor: !include binary_sensor.yaml
+camera: !include cameras.yaml
+
+switch:
+  - platform: broadlink
+    host: 192.168.86.198
+    mac: "C8:F7:42:16:BC:E8"
+    type: rm_mini
+    switches: !include broadlink.yaml
+
+# lock:
+#   - platform: template
+#     name: Front door
+#     value_template: "{{ is_state('switch.door_strike_release_override', 'off') }}"
+#     lock:
+#       service: switch.turn_on
+#       data:
+#         entity_id: switch.doorstrike_relay
+#     unlock:
+#       service: switch.turn_off
+#       data:
+#         entity_id: switch.doorstrike_relay
+
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 61
+  platform: smart_life
+
+googlehome:
+  devices:
+    - host: 192.168.86.24   # Parents mini
+      track_devices: false
+      rssi_threshold: !secret rssi_threshold
+      device_types: 1
+
+    - host: 192.168.86.200  # Chianti mini
+      track_devices: false
+      rssi_threshold: !secret rssi_threshold
+      device_types: 1
+
+    - host: 192.168.86.225  # Kirwin home
+      track_devices: false
+      rssi_threshold: !secret rssi_threshold
+      device_types: 1
+
+# https://www.home-assistant.io/components/samsungtv/
+# State is always “on” and unable to control (but port 8001 is open)
+# Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
+media_player:
+  - platform: samsungtv
+    name: Samsung TV
+    host: 192.168.86.72
+    port: 8001
+    mac: 54:88:0e:23:6d:b3
+
+
+# ================
+# Services
+# ================
+
+sun:
+
+weather:
+  - platform: bom
+    station: IDN60901.94759
+    name: Terrey Hills
+
+mqtt:
+  broker: homeassistant
+  discovery: true
+
+tts:
+  - platform: google_translate
+
+influxdb: !include influxdb.yaml
+
+
+# ================
+# Inputs
+# ================
+
+input_boolean:
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 300
+
+
+# ================
+# Extensions
+# ================
+
+webhook:
+
+zigbee2mqtt_networkmap:
+  #topic: zigbee2mqtt
+
+panel_iframe:
+  pihole:
+    title: Pi-hole
+    icon: mdi:dns
+    url: https://famidamily.duckdns.org:4865
+  networkmap:
+    title: 'Zigbee Map'
+    icon: 'mdi:graphql'
+    # You can set the graphviz engine via URL Parameter: 
+    # map.html?engine=circo (Default: circo, [Supported Engines](https://github.com/mdaines/viz.js/wiki/Supported-Graphviz-Features))  
+    url: '/local/zigbee2mqtt_networkmap/map.html'

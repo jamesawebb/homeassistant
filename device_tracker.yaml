@@ -1,0 +1,16 @@
+- platform: nmap_tracker
+  hosts: 192.168.86.0/24
+  scan_options: " --privileged -sn --host-timeout 5s "
+  interval_seconds: 20
+#   exclude:
+#     - 192.168.86.2
+
+- platform: bluetooth_le_tracker
+
+- platform: bluetooth_tracker
+
+# - platform: composite
+#   name: me_composite
+#   time_as: device_or_local
+#   entity_id:
+#     - device_tracker.life360_james_webb

@@ -1,0 +1,28 @@
+- platform: generic
+  name: Living Room
+  username: !secret camera_username
+  password: !secret camera_password
+  still_image_url: http://192.168.86.105:3796/snapshot.cgi
+  #stream_source: http://192.168.86.105:3796/videostream.cgi
+  #enable_motion_detection: yes
+
+- platform: generic
+  name: Basement Storage
+  username: !secret camera_username
+  password: !secret camera_password
+  still_image_url: http://192.168.86.160:3797/snapshot.cgi
+
+- platform: generic
+  name: Garage
+  username: !secret camera_username
+  password: !secret camera_password
+  still_image_url: http://192.168.86.141:3798/snapshot.cgi
+
+- platform: bom
+  name: Sydney
+  location: Sydney
+
+# Read local file as a camera image
+# - platform: local_file
+#   file_path: /config/www/images/camera/living_room.jpg
+#   name: Living Room
