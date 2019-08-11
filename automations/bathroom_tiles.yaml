@@ -1,0 +1,18 @@
+- id: bath_tiles_on
+  alias: Bathroom Tiles On
+  trigger:
+  - platform: time
+    at: 03:00
+  # condition:
+  #   condition: template
+  #   value_template: >
+  #     "{{ states('sensor.outside_patio_temperature') | float) | round | abs >= 3 }}"
+  action:
+  - data:
+      entity_id: switch.sonoff_bathroom_heated_tiles_relay
+    service: switch.turn_on
+  - delay:
+      hours: 6
+  - data:
+      entity_id: switch.sonoff_bathroom_heated_tiles_relay
+    service: switch.turn_off

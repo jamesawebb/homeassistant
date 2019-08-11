@@ -1,0 +1,12 @@
+trigger:
+  platform: state
+  entity_id: device_tracker.james_phone, device_tracker.chianti_s_phone, device_tracker.kirwins_iphone, device_tracker.tanias_iphone
+  # Optional
+  to: 'home'
+action:
+- service: tts.google_translate_say
+  # entity_id: media_player.kirwin_speaker
+  # entity_id: media_player.harman_kardon_avr
+  entity_id: media_player.house
+  data_template:
+    message: Someone is home

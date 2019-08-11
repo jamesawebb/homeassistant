@@ -1,0 +1,50 @@
+- id: arrive_home
+  alias: Arrived home
+  trigger:
+    - platform: state
+      entity_id: proximity.home
+      to: 'arrived'
+    - platform: numeric_state
+      entity_id: proximity.home
+      # Trigger when becoming 1m-5m away from home
+      below: 5000
+      above: 1000
+  action:
+    - service: tts.google_translate_say
+      entity_id: media_player.house
+      data_template:
+        message: Someone has arrived home
+    - service: hangouts.send_message
+      data_template:
+        target:
+          - id: !secret hangouts_hassio
+        message:
+          - is_bold: false
+            is_italic: false
+            is_strikethrough: false
+            text: >
+              **{{ trigger.to_state.attributes.nearest }}** arrived home.
+            parse_str: true
+
+- id: approaching_hornsby
+  alias: Arrived home
+  trigger:
+    platform: state
+    entity_id: proximity.waitara
+    to: 'arrived'
+  action:
+    - service: tts.google_translate_say
+      entity_id: media_player.house
+      data_template:
+        message: Someone has arrived home
+    - service: hangouts.send_message
+      data_template:
+        target:
+          - id: !secret hangouts_hassio
+        message:
+          - is_bold: false
+            is_italic: false
+            is_strikethrough: false
+            text: >
+              **{{ trigger.to_state.attributes.nearest }}** approaching Hornsby.
+            parse_str: true
