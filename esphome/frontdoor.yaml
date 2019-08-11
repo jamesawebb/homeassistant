@@ -1,0 +1,40 @@
+esphome:
+  name: frontdoor
+  platform: ESP32
+  board: esp-wrover-kit
+
+wifi:
+  ssid: !secret network
+  password: !secret wpa2
+
+logger:
+
+api:
+  password: !secret esphome_ota
+
+ota:
+  password: !secret esphome_ota
+
+substitutions:
+  id: frontdoor
+  friendly_name: Frontdoor
+  window_size: "10"
+  send_every: "10"
+  update_interval: "60s"
+<<: !include templates/bme280.yaml
+
+switch:
+
+  - platform: gpio
+    pin:
+      number: 23
+      mode: OUTPUT
+    id: relay
+
+  - platform: template
+    name: "Door Strike Release"
+    icon: "mdi:door-open"
+    turn_on_action:
+      - switch.turn_on: relay
+      - delay: 7s
+      - switch.turn_off: relay

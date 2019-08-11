@@ -1,0 +1,7 @@
+substitutions:
+  id: roof
+  friendly_name: Upstairs Attic
+  window_size: "10"
+  send_every: "10"
+  update_interval: "60s"
+<<: !include templates/bme280.yaml

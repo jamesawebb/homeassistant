@@ -1,0 +1,4 @@
+substitutions:
+  id: bathroom
+  friendly_name: Bathroom Heated Tiles
+<<: !include templates/sonoff.yaml
