@@ -7,6 +7,10 @@
 !.gitignore
 !*.md
 
+!automations/
+!esphome/
+!www/icons/
+
 # Ignore folders.
 .storage
 .cloud
