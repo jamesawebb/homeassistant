@@ -1,0 +1,56 @@
+esphome:
+  name: bme280${id}
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret network
+  password: !secret wpa2
+
+logger:
+
+api:
+  password: !secret esphome_ota
+
+ota:
+  password: !secret esphome_ota
+
+i2c:
+
+sensor:
+  - platform: bmp280
+    temperature:
+      name: "${friendly_name} Temperature"
+      id: ${id}_temperature
+      # filters:
+      #   - sliding_window_moving_average:
+      #       window_size: ${window_size}
+      #       send_every: ${send_every}
+    pressure:
+      name: "${friendly_name} Pressure"
+      id: ${id}_pressure
+      # filters:
+      #   - sliding_window_moving_average:
+      #       window_size: ${window_size}
+      #       send_every: ${send_every}
+    address: 0x76
+    iir_filter: 8x
+    update_interval: ${update_interval}
+
+  - platform: template
+    id: ${id}_altitude
+    name: "Altitude"
+    update_interval: ${update_interval}
+    lambda: |-
+      const float STANDARD_SEA_LEVEL_PRESSURE = 1013.25; //in hPa, see note
+      return ((id(${id}_temperature).state + 273.15) / 0.0065) *
+        (powf((STANDARD_SEA_LEVEL_PRESSURE / id(${id}_pressure).state), 0.190234) - 1); // in meter
+
+  - platform: template
+    id: ${id}_sea_level_pressure
+    name: "Equivalent sea level pressure"
+    update_interval: ${update_interval}
+    lambda: |-
+      const float STANDARD_ALTITUDE = 0.6; // in meters, see note
+      return id(${id}_pressure).state / powf(1 - ((0.0065 * STANDARD_ALTITUDE) /
+        (id(${id}_temperature).state + (0.0065 * STANDARD_ALTITUDE) + 273.15)), 5.257); // in hPa
