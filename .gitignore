@@ -9,7 +9,9 @@
 
 !automations/
 !esphome/
+!esphome/templates/
 !www/icons/
+!themes/
 
 # Ignore folders.
 .storage
