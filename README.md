@@ -52,7 +52,8 @@ Used with Zigbee2mqtt.
   },
   "certfile": "fullchain.pem",
   "keyfile": "privkey.pem"
-}```
+}
+```
 
 ## Community
 
