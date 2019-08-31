@@ -1,20 +1,22 @@
 weather.105_rosemead:
   icon: mdi:weather-lightning-rainy
-
 switch.door_strike_release:
   friendly_name: Frontdoor
   icon: mdi:door-open
 switch.sonoff_bathroom_heated_tiles_relay:
   friendly_name: Bathroom Heated Tiles
   icon: mdi:radiator
-switch.17011363b4e62d67c177:
+switch.bedroom_heating_panel_relay:
+  icon: mdi:radiator
+switch.dehumidifier_relay:
+  friendly_name: Dehumidifier
   icon: mdi:water-percent
 
 person.james:
   entity_picture: /local/icons/jaw.ico
 person.chianti:
   entity_picture: /local/icons/chianti.ico
-person.kirwin:  
+person.kirwin:
   entity_picture: /local/icons/kaw.ico
-person.tania:  
+person.tania:
   entity_picture: /local/icons/tania.jpg

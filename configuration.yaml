@@ -30,6 +30,7 @@ automation: !include_dir_merge_list automations
 notify: !include notifications.yaml
 group: !include groups.yaml
 script: !include scripts.yaml
+recorder: !include recorder.yaml
 
 
 # ================
@@ -83,6 +84,7 @@ device_tracker: !include device_tracker.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
+light: !include light.yaml
 
 switch:
   - platform: broadlink
@@ -91,41 +93,29 @@ switch:
     type: rm_mini
     switches: !include broadlink.yaml
 
-# lock:
-#   - platform: template
-#     name: Front door
-#     value_template: "{{ is_state('switch.door_strike_release_override', 'off') }}"
-#     lock:
-#       service: switch.turn_on
-#       data:
-#         entity_id: switch.doorstrike_relay
-#     unlock:
-#       service: switch.turn_off
-#       data:
-#         entity_id: switch.doorstrike_relay
+# Replaced by sonoff
+# tuya:
+#   username: !secret tuya_username
+#   password: !secret tuya_password
+#   country_code: 61
+#   platform: smart_life
 
-tuya:
-  username: !secret tuya_username
-  password: !secret tuya_password
-  country_code: 61
-  platform: smart_life
-
-googlehome:
-  devices:
-    - host: 192.168.86.24   # Parents mini
-      track_devices: false
-      rssi_threshold: !secret rssi_threshold
-      device_types: 1
-
-    - host: 192.168.86.200  # Chianti mini
-      track_devices: false
-      rssi_threshold: !secret rssi_threshold
-      device_types: 1
-
-    - host: 192.168.86.225  # Kirwin home
-      track_devices: false
-      rssi_threshold: !secret rssi_threshold
-      device_types: 1
+# googlehome:
+#   devices:
+#     - host: 192.168.86.24   # Parents mini
+#       track_devices: false
+#       rssi_threshold: !secret rssi_threshold
+#       device_types: 1
+# 
+#     - host: 192.168.86.200  # Chianti mini
+#       track_devices: false
+#       rssi_threshold: !secret rssi_threshold
+#       device_types: 1
+# 
+#     - host: 192.168.86.225  # Kirwin home
+#       track_devices: false
+#       rssi_threshold: !secret rssi_threshold
+#       device_types: 1
 
 # https://www.home-assistant.io/components/samsungtv/
 # State is always “on” and unable to control (but port 8001 is open)
@@ -185,10 +175,6 @@ zigbee2mqtt_networkmap:
   #topic: zigbee2mqtt
 
 panel_iframe:
-  pihole:
-    title: Pi-hole
-    icon: mdi:dns
-    url: https://famidamily.duckdns.org:4865
   networkmap:
     title: 'Zigbee Map'
     icon: 'mdi:graphql'
