@@ -3,10 +3,13 @@
   trigger:
   - platform: time
     at: 03:00
-  # condition:
-  #   condition: template
-  #   value_template: >
-  #     "{{ states('sensor.outside_patio_temperature') | float) | round | abs >= 3 }}"
+  condition:
+    # - condition: state
+    #   entity_id: sensor.weather_precip
+    #   state: rain
+    - condition: numeric_state
+      entity_id: sensor.outside_patio_temperature
+      below: 20
   action:
   - data:
       entity_id: switch.sonoff_bathroom_heated_tiles_relay

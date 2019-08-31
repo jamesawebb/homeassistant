@@ -11,7 +11,6 @@ switch.bedroom_heating_panel_relay:
 switch.dehumidifier_relay:
   friendly_name: Dehumidifier
   icon: mdi:water-percent
-
 person.james:
   entity_picture: /local/icons/jaw.ico
 person.chianti:
@@ -20,3 +19,11 @@ person.kirwin:
   entity_picture: /local/icons/kaw.ico
 person.tania:
   entity_picture: /local/icons/tania.jpg
+media_player.kirwin_speaker:
+  friendly_name: Kirwin
+media_player.harman_kardon_avr:
+  friendly_name: Lounge
+switch.harman_kardon_pwr:
+  friendly_name: Lounge
+media_player.garage_speaker:
+  friendly_name: Garage

@@ -61,7 +61,7 @@ Repository at https://github.com/hassio-addons/repository.
 
 - Visual code
 - Portainer
-- Pi-hole
+- Pi-hole (set an override for famidamily.duckdns.org in the config)
 - InfluxDB
 
 ## Third-part Repositories
@@ -91,3 +91,9 @@ hacs:
 
 - [Zigbee2mqtt network map](https://github.com/rgruebel/ha_zigbee2mqtt_networkmap)
 - Zigbee [device pairing instructions](https://www.zigbee2mqtt.io/devices/MCCGQ01LM)
+
+# YAML
+
+Have a look [here](http://blogs.perl.org/users/tinita/2018/03/strings-in-yaml---to-quote-or-not-to-quote.html)
+on how to define strings in YAML.  Also, check [this cheat sheet](https://yaml.org/refcard.html) for a quick
+reference.

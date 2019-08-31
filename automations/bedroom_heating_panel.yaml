@@ -1,0 +1,23 @@
+- id: heating_panel_on
+  alias: Bedroom heating panel on
+  trigger:
+  - platform: numeric_state  # https://www.home-assistant.io/docs/automation/trigger/#numeric-state-trigger
+    entity_id: sensor.bedroom_temperature
+    below:
+      16
+  action:
+  - data:
+      entity_id: switch.bedroom_heating_panel_relay
+    service: switch.turn_on
+
+- id: heating_panel_off
+  alias: Bedroom heating panel off
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.bedroom_temperature
+    above:
+      18
+  action:
+  - data:
+      entity_id: switch.bedroom_heating_panel_relay
+    service: switch.turn_off
