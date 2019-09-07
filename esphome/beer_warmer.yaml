@@ -1,0 +1,4 @@
+substitutions:
+  id: beer_warmer
+  friendly_name: Beer Warmer
+<<: !include templates/sonoff.yaml

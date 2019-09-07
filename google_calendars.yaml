@@ -1,0 +1,21 @@
+
+- cal_id: famidamily.hassio@gmail.com
+  entities:
+  - device_id: famidamily_calendar
+    ignore_availability: true
+    name: famidamily.hassio@gmail.com
+    track: true
+
+- cal_id: addressbook#contacts@group.v.calendar.google.com
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: true
+
+- cal_id: en.australian#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_australia
+    ignore_availability: true
+    name: Holidays in Australia
+    track: true

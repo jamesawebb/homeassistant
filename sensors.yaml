@@ -143,6 +143,17 @@
 
 - platform: template
   sensors:
+    bedroom_diff:
+      value_template: "{{ (states('sensor.outside_patio_temperature') | float - states('sensor.bedroom_temperature') | float) | round }}"
+    lounge_diff:
+      value_template: "{{ (states('sensor.outside_patio_temperature') | float - states('sensor.lounge_temperature') | float) | round }}"
+    garage_internal_diff:
+      value_template: "{{ (states('sensor.garage_temperature') | float - states('sensor.lounge_temperature') | float) | round }}"
+    garage_external_diff:
+      value_template: "{{ (states('sensor.outside_patio_temperature') | float - states('sensor.garage_temperature') | float) | round }}"
+
+- platform: template
+  sensors:
     bom_current_text:
       value_template: >
           {% set val = states('sensor.bom_terrey_hills_summary_0').split('.')[0] %} 

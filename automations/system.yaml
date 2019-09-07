@@ -12,8 +12,7 @@
         - is_bold: false
           is_italic: false
           is_strikethrough: false
-          text: >
-            Home assistant is starting
+          text: Home Assistant has (re)started
           parse_str: true     # Parse text as markdown
 
 - id: shutdown
@@ -30,6 +29,5 @@
         - is_bold: false
           is_italic: false
           is_strikethrough: false
-          text: >
-            Home assistant is shutting down
+          text: Home Assistant is shutting down
           parse_str: true     # Parse text as markdown

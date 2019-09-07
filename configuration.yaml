@@ -148,6 +148,11 @@ tts:
 
 influxdb: !include influxdb.yaml
 
+google:
+  client_id: !secret google_hassio_client_id
+  client_secret: !secret google_hassio_secret
+  track_new_calendar: true
+
 
 # ================
 # Inputs

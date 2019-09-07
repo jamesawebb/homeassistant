@@ -1,0 +1,44 @@
+- id: beer_warmer_on
+  alias: M42 yeast works best at 16-22°C
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.beer_temperature
+    below: 16
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            Beer wort has dropped to **{{ sensor.beer_temperature }}°C**.  Switching warmer pad on...
+          parse_str: true
+  - data:
+      entity_id: switch.beer_warmer_relay
+    service: switch.turn_on
+
+- id: beer_warmer_off
+  alias: M42 yeast works best at 16-22°C
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.beer_temperature
+    above: 22
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            Beer wort has risen to **{{ sensor.beer_temperature }}°C**.  Switching warmer pad off...
+          parse_str: true
+  - data:
+      entity_id: switch.beer_warmer_relay
+    service: switch.turn_on
+
