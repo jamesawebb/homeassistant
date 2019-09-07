@@ -4,6 +4,9 @@
   - platform: numeric_state
     entity_id: sensor.beer_temperature
     below: 16
+  condition:
+    condition: template
+    value_template: '{{ states("calendar.famidamily_calendar") and state_attr("calendar.famidamily_calendar", "message") | lower == "brewing beer" }}'
   action:
   - service: hangouts.send_message
     data_template:
@@ -26,6 +29,9 @@
   - platform: numeric_state
     entity_id: sensor.beer_temperature
     above: 22
+  condition:
+    condition: template
+    value_template: '{{ states("calendar.famidamily_calendar") and state_attr("calendar.famidamily_calendar", "message") | lower == "brewing beer" }}'
   action:
   - service: hangouts.send_message
     data_template:
