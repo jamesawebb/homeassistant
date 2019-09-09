@@ -15,21 +15,14 @@ http:
 frontend:
   themes: !include themes/dark_cyan.yaml
 
-logbook:
-  include:
-    domains:
-      - sensor
-      - switch
-      - automation
-      - media_player
-
 hacs:
   token: !secret my_github_hacs_token
 
 alert: !include alerts.yaml
 automation: !include_dir_merge_list automations
-notify: !include notifications.yaml
 group: !include groups.yaml
+logbook: !include logbook.yaml
+notify: !include notifications.yaml
 script: !include scripts.yaml
 recorder: !include recorder.yaml
 
