@@ -1,3 +1,7 @@
+# The difference between a condition and a trigger can be confusing as they are very similar.
+# Triggers look at the actions, while conditions look at the results: turning a light on \
+# versus a light being on.
+
 - id: beer_warmer_on
   alias: M42 yeast works best at 16-22°C
   trigger:
@@ -6,7 +10,7 @@
     below: 16
   condition:
     condition: template
-    value_template: '{{ is_state_attr("calendar.famidamily_calendar", "Brewing beer") }}'
+    value_template: '{{ is_state_attr("calendar.famidamily_calendar", "message", "Brewing beer") }}'
   action:
   - service: hangouts.send_message
     data_template:
@@ -31,7 +35,7 @@
     above: 22
   condition:
     condition: template
-    value_template: '{{ is_state_attr("calendar.famidamily_calendar", "Brewing beer") }}'
+    value_template: '{{ is_state_attr("calendar.famidamily_calendar", "message", "Brewing beer") }}'
   action:
   - service: hangouts.send_message
     data_template:
