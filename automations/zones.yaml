@@ -21,3 +21,26 @@
           text: >
             **{{ trigger.to_state.attributes.friendly_name }}** has arrived home.
           parse_str: true
+
+- id: someone_leaving_waitara
+  alias: Someone left Waitara station
+  trigger:
+    platform: zone
+    entity_id: 
+    - person.kirwin
+    - person.chianti
+    - person.tania
+    zone: zone.waitara
+    event: leave
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            **{{ trigger.to_state.attributes.friendly_name }}** has left Waitara station.
+          parse_str: true
