@@ -1,23 +1,29 @@
-  - platform: "mqtt"
-    state_topic: "zigbee2mqtt/frontdoor"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    payload_on: false
-    payload_off: true
-    value_template: "{{ value_json.contact }}"
-    device_class: "door"
+- platform: "mqtt"
+  state_topic: "zigbee2mqtt/frontdoor"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: false
+  payload_off: true
+  value_template: "{{ value_json.contact }}"
+  device_class: "door"
 
-  - platform: "mqtt"
-    state_topic: "zigbee2mqtt/laundry_sliding_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    payload_on: false
-    payload_off: true
-    value_template: "{{ value_json.contact }}"
-    device_class: "door"
+- platform: "mqtt"
+  state_topic: "zigbee2mqtt/laundry_sliding_door"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: false
+  payload_off: true
+  value_template: "{{ value_json.contact }}"
+  device_class: "door"
 
-  - platform: "mqtt"
-    state_topic: "zigbee2mqtt/patio_door"
-    availability_topic: "zigbee2mqtt/bridge/state"
-    payload_on: false
-    payload_off: true
-    value_template: "{{ value_json.contact }}"
-    device_class: "door"
+- platform: "mqtt"
+  state_topic: "zigbee2mqtt/patio_door"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  payload_on: false
+  payload_off: true
+  value_template: "{{ value_json.contact }}"
+  device_class: "door"
+
+- platform: template
+  sensors:
+    temp_diff_lounge_outside:
+      value_template: "{{ (states('sensor.lounge_temperature') | float - states('sensor.outside_patio_temperature') | float) | abs | round >= 3 }}"
+      friendly_name: Difference between lounge and outside patio exceeds 3°C
