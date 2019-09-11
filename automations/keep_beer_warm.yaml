@@ -7,7 +7,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.beer_temperature
-    below: 16
+    below: 18
   condition:
     condition: template
     value_template: '{{ is_state_attr("calendar.famidamily_calendar", "message", "Brewing beer") }}'
@@ -23,16 +23,16 @@
           text: >
             Beer wort has dropped to **{{ sensor.beer_temperature }}°C**.  Switching warmer pad on...
           parse_str: true
-  - data:
+  - service: switch.turn_on
+    data:
       entity_id: switch.beer_warmer_relay
-    service: switch.turn_on
 
 - id: beer_warmer_off
   alias: M42 yeast works best at 16-22°C
   trigger:
   - platform: numeric_state
     entity_id: sensor.beer_temperature
-    above: 22
+    above: 20
   condition:
     condition: template
     value_template: '{{ is_state_attr("calendar.famidamily_calendar", "message", "Brewing beer") }}'
@@ -48,7 +48,6 @@
           text: >
             Beer wort has risen to **{{ sensor.beer_temperature }}°C**.  Switching warmer pad off...
           parse_str: true
-  - data:
+  - service: switch.turn_off
+    data:
       entity_id: switch.beer_warmer_relay
-    service: switch.turn_on
-
