@@ -42,32 +42,6 @@ geo_location:
       - 'Watch and Act'
       - 'Advice'
 
-# proximity:
-#   home:
-#     ignored_zones:
-#       - work
-#     devices:
-#       - person.james
-#       - person.chianti
-#       - person.kirwin
-#       - person.tania
-#     tolerance: 150
-#     unit_of_measurement: m
-#   marist:
-#     zone: marist
-#     devices:
-#       - person.kirwin
-#     tolerance: 150
-#     unit_of_measurement: m
-#   waitara:
-#     zone: waitara
-#     devices:
-#       - person.chianti
-#       - person.kirwin
-#       - person.tania
-#     tolerance: 150
-#     unit_of_measurement: m
-
 device_tracker: !include device_tracker.yaml
 
 
@@ -93,23 +67,6 @@ switch:
 #   password: !secret tuya_password
 #   country_code: 61
 #   platform: smart_life
-
-# googlehome:
-#   devices:
-#     - host: 192.168.86.24   # Parents mini
-#       track_devices: false
-#       rssi_threshold: !secret rssi_threshold
-#       device_types: 1
-# 
-#     - host: 192.168.86.200  # Chianti mini
-#       track_devices: false
-#       rssi_threshold: !secret rssi_threshold
-#       device_types: 1
-# 
-#     - host: 192.168.86.225  # Kirwin home
-#       track_devices: false
-#       rssi_threshold: !secret rssi_threshold
-#       device_types: 1
 
 # Cf. https://www.home-assistant.io/components/samsungtv/
 # State is always “on” and unable to control (but port 8001 is open)
