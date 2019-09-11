@@ -1,24 +1,61 @@
-front_door_unlocked:
-  name: Frontdoor unlocked
-  entity_id: switch.doorstrike_relay
-  repeat: 1
-  state: "on"
-  can_acknowledge: true
+# Alerts: ...designed to notify you when problematic issues arise.
+
+# More complex alerts can be defined at:
+# https://www.home-assistant.io/components/alert/#complex-alert-criteria
+
+patio_door_left_opened:
+  name: Patio door open alert
+  entity_id: binary_sensor.0x00158d00029bf16c_contact
+  repeat: 10
+  state: on
+  can_acknowledge: false
   skip_first: false
+  message: "Alert: the patio door is **open**"
+  done_message: "Alert: patio door is closed again"
   notifiers:
-    - hangouts_group
+    - hangouts_hassio
+    #- hangouts_group
   data:
-    target:
-      - id:!secret hangouts_group
-    message:
-      - text: "Alert: the front door was **unlocked**"
-        is_bold: false
-        is_italic: false
-        is_strikethrough: false
-        parse_str: true
-        #link_target: "https://github.com/custom-components/sensor.rpi_power"
-    data:
-      image_url: "https://www.sccpre.cat/mypng/detail/77-779070_open-door-icon-png-white-png-download-front.png"
+    is_bold: false
+    is_italic: false
+    is_strikethrough: false
+    parse_str: true
+
+laundry_door_left_opened:
+  name: Laundry sliding door open alert
+  entity_id: binary_sensor.laundry_sliding_door_contact
+  repeat: 10
+  state: on
+  can_acknowledge: false
+  skip_first: false
+  message: "Alert: the laundry sliding door is **open**"
+  done_message: "Alert: laundry sliding door is closed again"
+  notifiers:
+    - hangouts_hassio
+    #- hangouts_group
+  data:
+    is_bold: false
+    is_italic: false
+    is_strikethrough: false
+    parse_str: true
+
+# front_door_unlocked:
+#   name: Frontdoor unlocked
+#   entity_id: switch.doorstrike_relay
+#   repeat: 1    # repeat alert after 1 mins
+#   state: "on"  # alert when changed to this state
+#   can_acknowledge: false
+#   skip_first: false
+#   message: "Alert: the front door was **unlocked**"
+#   done_message: "Alert: front door locked again"
+#   notifiers:
+#     - hangouts_hassio
+#     #- hangouts_group
+#   data:
+#     is_bold: false
+#     is_italic: false
+#     is_strikethrough: false
+#     parse_str: true
 
 # door_left_opened:
 #   name: Door ajar
