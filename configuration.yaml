@@ -18,12 +18,12 @@ frontend:
 hacs:
   token: !secret my_github_hacs_token
 
-alert: !include alerts.yaml
+#alert: !include alerts.yaml
 automation: !include_dir_merge_list automations
 group: !include groups.yaml
 logbook: !include logbook.yaml
 notify: !include notifications.yaml
-script: !include scripts.yaml
+#script: !include scripts.yaml
 recorder: !include recorder.yaml
 
 
@@ -42,31 +42,31 @@ geo_location:
       - 'Watch and Act'
       - 'Advice'
 
-proximity:
-  home:
-    ignored_zones:
-      - work
-    devices:
-      - person.james
-      - person.chianti
-      - person.kirwin
-      - person.tania
-    tolerance: 150
-    unit_of_measurement: m
-  marist:
-    zone: marist
-    devices:
-      - person.kirwin
-    tolerance: 150
-    unit_of_measurement: m
-  waitara:
-    zone: waitara
-    devices:
-      - person.chianti
-      - person.kirwin
-      - person.tania
-    tolerance: 150
-    unit_of_measurement: m
+# proximity:
+#   home:
+#     ignored_zones:
+#       - work
+#     devices:
+#       - person.james
+#       - person.chianti
+#       - person.kirwin
+#       - person.tania
+#     tolerance: 150
+#     unit_of_measurement: m
+#   marist:
+#     zone: marist
+#     devices:
+#       - person.kirwin
+#     tolerance: 150
+#     unit_of_measurement: m
+#   waitara:
+#     zone: waitara
+#     devices:
+#       - person.chianti
+#       - person.kirwin
+#       - person.tania
+#     tolerance: 150
+#     unit_of_measurement: m
 
 device_tracker: !include device_tracker.yaml
 
@@ -111,7 +111,7 @@ switch:
 #       rssi_threshold: !secret rssi_threshold
 #       device_types: 1
 
-# https://www.home-assistant.io/components/samsungtv/
+# Cf. https://www.home-assistant.io/components/samsungtv/
 # State is always “on” and unable to control (but port 8001 is open)
 # Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
 media_player:
@@ -142,6 +142,8 @@ tts:
 
 influxdb: !include influxdb.yaml
 
+# Google Calendar integration
+# Cf. https://www.home-assistant.io/components/calendar.google/
 google:
   client_id: !secret google_hassio_client_id
   client_secret: !secret google_hassio_secret
