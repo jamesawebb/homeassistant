@@ -61,7 +61,7 @@ Repository at https://github.com/hassio-addons/repository.
 
 - Visual code
 - Portainer
-- Pi-hole (set an override for famidamily.duckdns.org in the config)
+- Pi-hole (set an override for `famidamily.duckdns.org` domain in the config)
 - InfluxDB
 
 ## Third-part Repositories
