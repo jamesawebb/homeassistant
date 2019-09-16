@@ -154,6 +154,10 @@
 
 - platform: template
   sensors:
+    mould_degrees:
+      friendly_name: "Mould Indicator"
+      unit_of_measurement: °C
+      value_template: "{{ states('sensor.mold_indicator') }}"
     bom_current_text:
       value_template: >
           {% set val = states('sensor.bom_terrey_hills_summary_0').split('.')[0] %} 
