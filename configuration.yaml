@@ -52,6 +52,7 @@ device_tracker: !include device_tracker.yaml
 sensor: !include sensors.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
+climate: !include climate.yaml
 light: !include light.yaml
 
 switch:
