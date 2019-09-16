@@ -1,0 +1,38 @@
+- platform: generic_thermostat
+  name: Beer
+  heater: switch.beer_warmer_relay
+  target_sensor: sensor.beer_temperature
+  ac_mode: false
+  min_temp: 16
+  max_temp: 22
+  target_temp: 19
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  precision: 0.1
+  initial_hvac_mode: "off"
+
+- platform: generic_thermostat
+  name: Bedroom Heating Panel
+  heater: switch.bedroom_heating_panel_relay
+  target_sensor: sensor.bedroom_temperature
+  ac_mode: false
+  min_temp: 14
+  max_temp: 22
+  target_temp: 18
+  cold_tolerance: 2.0
+  hot_tolerance: 2.0
+  precision: 0.1
+  initial_hvac_mode: "off"
+
+- platform: generic_thermostat
+  name: Moule Indicator
+  heater: switch.bedroom_heating_panel_relay
+  target_sensor: sensor.mould_degrees
+  ac_mode: true
+  min_temp: 0
+  max_temp: 100
+  target_temp: 70
+  cold_tolerance: 10.0
+  hot_tolerance: 10.0
+  precision: 1.0
+  initial_hvac_mode: "off"
