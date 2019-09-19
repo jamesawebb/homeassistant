@@ -17,6 +17,7 @@ frontend:
 
 hacs:
   token: !secret my_github_hacs_token
+  sidepanel_title: Community Store
 
 #alert: !include alerts.yaml
 automation: !include_dir_merge_list automations
