@@ -25,8 +25,8 @@
   initial_hvac_mode: "off"
 
 - platform: generic_thermostat
-  name: Moule Indicator
-  heater: switch.bedroom_heating_panel_relay
+  name: Dehumidifier
+  heater: switch.dehumidifier_relay
   target_sensor: sensor.mould_degrees
   ac_mode: true
   min_temp: 0
