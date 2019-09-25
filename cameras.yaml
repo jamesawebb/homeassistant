@@ -2,19 +2,19 @@
   name: Living Room
   username: !secret camera_username
   password: !secret camera_password
-  still_image_url: http://camera3796.duckdns.org:3796/snapshot.cgi
+  still_image_url: http://camera3796.local:3796/snapshot.cgi
 
 - platform: generic
   name: Basement Storage
   username: !secret camera_username
   password: !secret camera_password
-  still_image_url: http://camera3797.duckdns.org:3797/snapshot.cgi
+  still_image_url: http://camera3797.local:3797/snapshot.cgi
 
 - platform: generic
   name: Garage
   username: !secret camera_username
   password: !secret camera_password
-  still_image_url: http://camera3798.duckdns.org:3698/snapshot.cgi
+  still_image_url: http://camera3798.local:3698/snapshot.cgi
 
 - platform: bom
   name: Sydney
