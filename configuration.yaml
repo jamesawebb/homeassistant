@@ -70,8 +70,7 @@ switch:
 #   country_code: 61
 #   platform: smart_life
 
-# Cf. https://www.home-assistant.io/components/samsungtv/
-# State is always “on” and unable to control (but port 8001 is open)
+# State is always â€œonâ€ and unable to control (but port 8001 is open)
 # Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
 media_player:
   - platform: samsungtv
@@ -101,12 +100,15 @@ tts:
 
 influxdb: !include influxdb.yaml
 
-# Google Calendar integration
-# Cf. https://www.home-assistant.io/components/calendar.google/
 google:
   client_id: !secret google_hassio_client_id
   client_secret: !secret google_hassio_secret
   track_new_calendar: true
+
+pi_hole:
+  host: 'famidamily.duckdns.org:4685'
+  ssl: true
+  verify_ssl: true
 
 
 # ================
