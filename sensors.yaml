@@ -40,16 +40,6 @@
     sunrise:
       value_template: "{{ state_attr('sun.sun', 'next_rising') }}"
 
-- platform: pi_hole
-  host: localhost:4865
-  monitored_conditions:
-    - ads_blocked_today
-    - dns_queries_today
-    - unique_clients
-
-# - platform: rpi_power
-#   text_state: false
-
 - platform: mqtt
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
