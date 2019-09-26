@@ -136,5 +136,6 @@ panel_iframe:
     title: 'Zigbee Map'
     icon: 'mdi:graphql'
     # You can set the graphviz engine via URL Parameter: 
-    # map.html?engine=circo (Default: circo, [Supported Engines](https://github.com/mdaines/viz.js/wiki/Supported-Graphviz-Features))  
+    # map.html?engine=circo (Default: circo,
+    # [Supported Engines](https://github.com/mdaines/viz.js/wiki/Supported-Graphviz-Features))  
     url: '/local/zigbee2mqtt_networkmap/map.html'
