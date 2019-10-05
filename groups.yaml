@@ -1,0 +1,12 @@
+famidamily:
+  name: All family members
+  entities:
+    - person.james
+    - group.everyone_else
+
+everyone_else:
+  name: Everyone but me
+  entities:
+    - person.tania
+    - person.kirwin
+    - person.chianti
