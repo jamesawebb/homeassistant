@@ -2,11 +2,7 @@
   alias: Someone has arrived home
   trigger:
     platform: zone
-    entity_id: 
-    - person.kirwin
-    - person.chianti
-    - person.tania
-    - person.james
+    entity_id: group.famidamily
     zone: zone.home
     event: enter
   action:
@@ -26,10 +22,7 @@
   alias: Someone left Waitara station
   trigger:
     platform: zone
-    entity_id: 
-    - person.kirwin
-    - person.chianti
-    - person.tania
+    entity_id: group.everyone_else
     zone: zone.waitara
     event: leave
   action:
