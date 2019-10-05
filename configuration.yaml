@@ -87,7 +87,7 @@ weather:
     name: Terrey Hills
 
 mqtt:
-  broker: homeassistant
+  broker: famidamily.duckdns.org
   discovery: true
 
 tts:
