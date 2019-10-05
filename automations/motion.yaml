@@ -3,6 +3,10 @@
   trigger:
     platform: webhook
     webhook_id: motion_lounge
+  condition:
+    condition: zone
+    entity_id: group.famidamily
+    zone: zone.not_home
   action:
   - service: hangouts.send_message
     data_template:
@@ -20,6 +24,10 @@
   trigger:
     platform: webhook
     webhook_id: motion_garage
+  condition:
+    condition: zone
+    entity_id: group.famidamily
+    zone: zone.not_home
   action:
   - service: hangouts.send_message
     data_template:
