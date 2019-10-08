@@ -3,10 +3,10 @@
   trigger:
     platform: webhook
     webhook_id: motion_lounge
-  condition:
-    condition: zone
-    entity_id: group.famidamily
-    zone: zone.not_home
+  # condition:
+  #   condition: zone
+  #   entity_id: group.famidamily
+  #   zone: zone.not_home
   action:
   - service: hangouts.send_message
     data_template:
@@ -24,10 +24,10 @@
   trigger:
     platform: webhook
     webhook_id: motion_garage
-  condition:
-    condition: zone
-    entity_id: group.famidamily
-    zone: zone.not_home
+  # condition:
+  #   condition: zone
+  #   entity_id: group.famidamily
+  #   zone: zone.not_home
   action:
   - service: hangouts.send_message
     data_template:
@@ -38,4 +38,25 @@
           is_italic: false
           is_strikethrough: false
           text: Something moved in the garage.
+          parse_str: true
+
+- id: motion
+  alias: Something moved in the yurt
+  trigger:
+    platform: webhook
+    webhook_id: motion_yurt
+  # condition:
+  #   condition: zone
+  #   entity_id: group.famidamily
+  #   zone: zone.not_home
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: Something moved in the yurt.
           parse_str: true
