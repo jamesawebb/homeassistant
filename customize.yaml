@@ -27,3 +27,5 @@ switch.harman_kardon_pwr:
   friendly_name: Lounge
 media_player.garage_speaker:
   friendly_name: Garage
+switch.yurt_hot_water_cylinder_relay:
+  icon: mdi:water-boiler
