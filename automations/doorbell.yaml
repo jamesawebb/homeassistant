@@ -1,4 +1,6 @@
-# Cf. https://www.home-assistant.io/docs/automation/trigger/  
+# Cf. https://www.home-assistant.io/docs/automation/trigger/
+
+# Twilight
 - id: night_doorbell
   alias: Doorbell illuminated
   trigger:
@@ -7,9 +9,10 @@
     value_template: "{{ state.attributes.elevation }}"
     below: 0
   action:
-    entity_id: switch.button_illumination_relay
     service: switch.turn_on
+    entity_id: switch.button_illumination_relay
 
+# Dawn
 - id: day_doorbell
   alias: Doorbell not illuminated
   trigger:
@@ -18,15 +21,20 @@
     value_template: "{{ state.attributes.elevation }}"
     above: 0
   action:
-    entity_id: switch.button_illumination_relay
     service: switch.turn_off
+    entity_id: switch.button_illumination_relay
 
+# Doorbell pressed
 - id: dingdong
   alias: Doorbell pressed
   trigger:
   - platform: state
     entity_id: binary_sensor.doorbell_press
     to: "on"
+  condition:
+      - condition: state
+        entity_id: input_boolean.frontdoor_unlock
+        state: "off"
   action:
   - entity_id: switch.button_flicker
     service: switch.turn_on
@@ -42,11 +50,36 @@
             **Dingdong**:
             Someone is at the frontdoor
           parse_str: true     # Parse text as markdown
-  - entity_id: media_player.house
-    service: tts.google_translate_say
+  # - entity_id: media_player.house
+  #   service: tts.google_translate_say
+  #   data_template:
+  #     message: Someone is at the front door
+
+# Frontdoor unlock pressed
+- id: unlock_please
+  alias: Frontdoor unlock request
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.doorbell_press
+    to: "on"
+  condition:
+      - condition: state
+        entity_id: input_boolean.frontdoor_unlock
+        state: "on"
+  action:
+  - service: switch.turn_on
+    entity_id: switch.door_strike_release_override
+  - service: hangouts.send_message
     data_template:
-      message: Someone is at the front door
-#   - service: persistent_notification.create
-#     data:
-#       message: Front doorbell pressed
-#       title: Dingdong
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            Door unlocked with **{{ state_attr("timer.arrived_home", "remaining") }}** left on the timer.
+          parse_str: true
+  - service: timer.cancel
+    entity_id: timer.arrived_home
+

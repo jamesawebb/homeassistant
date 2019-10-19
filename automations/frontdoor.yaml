@@ -1,0 +1,39 @@
+# Frontdoor unlocked
+- id: frontdoor_to_unlock
+  alias: Open doorstrike doorbell
+  trigger:
+  - entity_id: input_boolean.frontdoor_unlock
+    platform: state
+    to: 'on'
+  action:
+  - service: timer.start
+    entity_id: timer.arrived_home
+
+# Frontdoor locked
+- id: frontdoor_to_unlock
+  alias: Regular doorbell
+  trigger:
+  - entity_id: input_boolean.frontdoor_unlock
+    platform: state
+    to: 'off'
+  action:
+  - service: timer.cancel
+    entity_id: timer.arrived_home
+
+# Frontdoor timer expires or is cancelled
+- id: arrive_home_expires
+  alias: Change Frontdoor mode to Locked
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.arrived_home
+  - platform: event
+    event_type: timer.cancelled
+    event_data:
+      entity_id: timer.arrived_home
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.frontdoor_unlock
+ 

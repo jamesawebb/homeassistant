@@ -110,11 +110,28 @@ input_boolean:
     name: Allow devices to join
     initial: off
     icon: mdi:cellphone-wireless
+  frontdoor_unlock:
+    name: Frontdoor unlocked
+    initial: off
+    icon: mdi:lock-outline
+
+input_select:
+  frontdoor_mode:
+    name: Mode of frontdoor
+    options:
+      - Locked
+      - Unlocked
+      - Passive
+    initial: Locked
+    icon: mdi:lock-outline
 
 timer:
   zigbee_permit_join:
-    name: Time remaining
-    duration: 300
+    name: Zibbee permit join remaining
+    duration: 600
+  arrived_home:
+    name: Frontdoor unlock remaining
+    duration: 30
 
 # ================
 # Extensions
