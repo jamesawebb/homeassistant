@@ -2,7 +2,11 @@
   alias: Someone has arrived home
   trigger:
     platform: zone
-    entity_id: group.famidamily
+    entity_id: 
+      - person.james
+      - person.tania
+      - person.kirwin
+      - person.chianti
     zone: zone.home
     event: enter
   action:
@@ -17,12 +21,18 @@
           text: >
             **{{ trigger.to_state.attributes.friendly_name }}** has arrived home.
           parse_str: true
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.frontdoor_unlock
 
 - id: someone_leaving_waitara
   alias: Someone left Waitara station
   trigger:
     platform: zone
-    entity_id: group.everyone_else
+    entity_id:
+      - person.tania
+      - person.kirwin
+      - person.chianti
     zone: zone.waitara
     event: leave
   action:
