@@ -3,8 +3,8 @@
   trigger:
   - platform: state
     entity_id: 
-    - binary_sensor.0x00158d00029bf16c_contact
-    - binary_sensor.0x00158d0002d6fa11_contact
+    - binary_sensor.frontdoor_contact
+    - binary_sensor.laundry_sliding_door_contact
     to:
       "on"
     for:
