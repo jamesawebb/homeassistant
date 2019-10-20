@@ -82,9 +82,9 @@ weather:
     station: IDN60901.94759
     name: Terrey Hills
 
-mqtt:
-  broker: famidamily.duckdns.org
-  discovery: true
+# mqtt:
+#   broker: homeassistant
+#   discovery: true
 
 tts:
   - platform: google_translate
@@ -131,7 +131,7 @@ timer:
     duration: 600
   arrived_home:
     name: Frontdoor unlock remaining
-    duration: 30
+    duration: 180
 
 # ================
 # Extensions
