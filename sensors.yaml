@@ -32,7 +32,7 @@
     google_aud:
       friendly_name: "Google stock adjusted to AUD"
       unit_of_measurement: "$AUD"
-      value_template: "{{ (float((states.sensor.google_class_c.state)) * float((states.sensor.usd2aud.state))) | round(2)}}"
+      value_template: "{{ (float(states('sensor.google_class_c')) * float(states('sensor.usd2aud'))) | round(2)}}"
     solar_angle:
       friendly_name: "Sun Angle"
       unit_of_measurement: '°'
