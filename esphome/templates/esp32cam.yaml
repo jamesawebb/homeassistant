@@ -10,10 +10,10 @@ wifi:
 logger:
 
 api:
-  password: !secret esphome_ota
+  password: !secret basic
 
 ota:
-  password: !secret esphome_ota
+  password: !secret basic
 
 # https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/
 # https://esphome.io/components/esp32_camera.html#configuration-variables

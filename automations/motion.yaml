@@ -9,7 +9,7 @@
   #   zone: zone.not_home
   condition:
     condition: template
-    value_template: '{{ states("group.famidamily") != 'home' }}'
+    value_template: '{{ states("group.famidamily") != "home" }}'
   action:
   - service: hangouts.send_message
     data_template:
@@ -29,7 +29,7 @@
     webhook_id: motion_garage
   condition:
     condition: template
-    value_template: '{{ states("group.famidamily") != 'home' }}'
+    value_template: '{{ states("group.famidamily") != "home" }}'
   action:
   - service: hangouts.send_message
     data_template:
@@ -49,7 +49,7 @@
     webhook_id: motion_yurt
   condition:
     condition: template
-    value_template: '{{ states("group.famidamily") != 'home' }}'
+    value_template: '{{ states("group.famidamily") != "home" }}'
   action:
   - service: hangouts.send_message
     data_template:

@@ -10,10 +10,10 @@ wifi:
 logger:
 
 api:
-  password: !secret esphome_ota
+  password: !secret basic
 
 ota:
-  password: !secret esphome_ota
+  password: !secret basic
 
 binary_sensor:
   - platform: gpio
