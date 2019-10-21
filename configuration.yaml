@@ -36,7 +36,7 @@ recorder: !include recorder.yaml
 zone: !include zones.yaml
 device_tracker: !include device_tracker.yaml
 
-owntracks:
+#owntracks:
 
 geo_location:
   - platform: nsw_rural_fire_service_feed
@@ -82,9 +82,11 @@ weather:
     station: IDN60901.94759
     name: Terrey Hills
 
-# mqtt:
-#   broker: homeassistant
-#   discovery: true
+mqtt:
+  # broker: homeassistant
+  # discovery: true
+  username: !secret mqtt_user
+  password: !secret master3
 
 tts:
   - platform: google_translate
