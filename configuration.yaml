@@ -83,8 +83,9 @@ weather:
     name: Terrey Hills
 
 mqtt:
-  # broker: homeassistant
-  # discovery: true
+  broker: 192.168.86.168
+  discovery: true
+  discovery_prefix: zigbee2mqtt
   username: !secret mqtt_user
   password: !secret master3
 
