@@ -33,6 +33,7 @@ recorder: !include recorder.yaml
 # Geolocation
 # ================
 
+person: !include person.yaml
 zone: !include zones.yaml
 device_tracker: !include device_tracker.yaml
 
@@ -81,6 +82,12 @@ weather:
   - platform: bom
     station: IDN60901.94759
     name: Terrey Hills
+
+# Cf. https://www.home-assistant.io/integrations/wwlln/
+wwlln:
+  radius: 25
+  latitude: -33.7008
+  longitude: 151.086
 
 mqtt:
   broker: 192.168.86.168
