@@ -7,25 +7,27 @@ include:
   domains:
   - alert
   - automation
+  - binary_sensor
   - calendar
+  - device_tracker
+  - geo_location
+  - input_boolean
   - media_player
   - person
   - proximity
   - sensor
   - switch
   - timer
+  - zone
 exclude:
   domains:
-  - binary_sensor
   - camera
-  - device_tracker
   - group
   - hangouts
-  - input_boolean
-  - sun
+  - input_select
+  - sunr 
   - weather
   - zigbee2mqtt_networkmap
-  - zone
   entities:
   - sensor.yr_symbol
   - sensor.sunrise
