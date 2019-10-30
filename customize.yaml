@@ -1,5 +1,15 @@
-weather.105_rosemead:
-  icon: mdi:weather-lightning-rainy
+media_player.kirwin_speaker:
+  friendly_name: Kirwin
+media_player.harman_kardon_avr:
+  friendly_name: Lounge
+person.james:
+  entity_picture: /local/icons/jaw.ico
+person.chianti:
+  entity_picture: /local/icons/chianti.ico
+person.kirwin:
+  entity_picture: /local/icons/kaw.ico
+person.tania:
+  entity_picture: /local/icons/tania.jpg
 switch.door_strike_release:
   friendly_name: Frontdoor
   icon: mdi:door-open
@@ -11,21 +21,11 @@ switch.bedroom_heating_panel_relay:
 switch.dehumidifier_relay:
   friendly_name: Dehumidifier
   icon: mdi:water-percent
-person.james:
-  entity_picture: /local/icons/jaw.ico
-person.chianti:
-  entity_picture: /local/icons/chianti.ico
-person.kirwin:
-  entity_picture: /local/icons/kaw.ico
-person.tania:
-  entity_picture: /local/icons/tania.jpg
-media_player.kirwin_speaker:
-  friendly_name: Kirwin
-media_player.harman_kardon_avr:
-  friendly_name: Lounge
 switch.harman_kardon_pwr:
   friendly_name: Lounge
 media_player.garage_speaker:
   friendly_name: Garage
 switch.yurt_hot_water_cylinder_relay:
   icon: mdi:water-boiler
+weather.105_rosemead:
+  icon: mdi:weather-lightning-rainy
