@@ -1,0 +1,14 @@
+- id: kirwin
+  name: Kirwin
+  user_id: kirwin
+  device_trackers:
+    - device_tracker.life360_kirwin
+    - device_tracker.kirwins_iphone_lan
+
+- id: tania
+  name: Tania
+  user_id: tania
+  device_trackers:
+    - device_tracker.life360_tania
+    - device_tracker.tania_surface_lan
+    - device_tracker.taniasurface_lan
