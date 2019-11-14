@@ -45,6 +45,15 @@
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless
 
+- platform: mqtt
+  name: Zigbee2mqtt Networkmap
+  # if you change base_topic of Zigbee2mqtt, change state_topic accordingly
+  state_topic: zigbee2mqtt/bridge/networkmap/raw
+  value_template: >-
+    {{ now().strftime('%Y-%m-%d %H:%M:%S') }}
+  # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
+  json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
+
 # Frontdoor sensor
 - platform: "mqtt"
   state_topic: "zigbee2mqtt/frontdoor"
@@ -83,6 +92,20 @@
 
 - platform: "mqtt"
   state_topic: "zigbee2mqtt/patio_door"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "-"
+  value_template: "{{ value_json.linkquality }}"
+
+# Patio sliding door
+- platform: "mqtt"
+  state_topic: "zigbee2mqtt/garage_door"
+  availability_topic: "zigbee2mqtt/bridge/state"
+  unit_of_measurement: "%"
+  device_class: "battery"
+  value_template: "{{ value_json.battery }}"
+
+- platform: "mqtt"
+  state_topic: "zigbee2mqtt/garage_door"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
