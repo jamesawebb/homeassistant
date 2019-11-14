@@ -20,7 +20,7 @@
   - service: timer.cancel
     entity_id: timer.arrived_home
 
-# Frontdoor timer expires or is cancelled
+# Frontdoor timer expires or is cancelled or the front door is opened
 - id: arrive_home_expires
   alias: Change Frontdoor mode to Locked
   trigger:
@@ -32,8 +32,17 @@
     event_type: timer.cancelled
     event_data:
       entity_id: timer.arrived_home
+  - platform: state
+    entity_id: 
+    - binary_sensor.frontdoor_contact
+    to:
+      "on"
+    # for:
+    #   seconds: 1
   action:
   - service: input_boolean.turn_off
     data:
       entity_id: input_boolean.frontdoor_unlock
- 
+  - service: switch.turn_off
+    data:
+      entity_id: switch.doorstrike_relay
