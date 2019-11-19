@@ -56,6 +56,15 @@ camera: !include cameras.yaml
 climate: !include climate.yaml
 light: !include light.yaml
 
+# https://www.home-assistant.io/integrations/android_ip_webcam/
+# ...turns any Android phone or tablet into a network camera with multiple viewing options
+# android_ip_webcam:
+#   - name: Stove
+#     host: 192.168.86.47
+#     port: 8080
+#     username: james
+#     password: !secret basic
+
 switch:
   - platform: broadlink
     host: 192.168.86.198
@@ -65,12 +74,56 @@ switch:
 
 # State is always on and unable to control (but port 8001 is open)
 # Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
+#
+# $ nmap -A -T4 192.168.86.72
+# PORT     STATE    SERVICE        VERSION
+# 4443/tcp open     ssl/pharos?
+# |_ssl-date: 1970-01-01T07:46:33+00:00; -49y317d01h46m14s from scanner time.
+# 5101/tcp open     tcpwrapped
+# 6000/tcp filtered X11
+# 7676/tcp open     upnp           AllShare UPnP
+# 8000/tcp open     http-alt
+# | fingerprint-strings: 
+# |   FourOhFourRequest, HTTPOptions: 
+# |     HTTP/1.1 500 Internal Server Error
+# |     Content-Type: text/plain
+# |     Date: Thu, 01 Jan 1970 07:46:22 GMT
+# |     Connection: close
+# |   GetRequest: 
+# |     HTTP/1.1 500 Internal Server Error
+# |     Content-Type: text/plain
+# |     Date: Thu, 01 Jan 1970 07:46:21 GMT
+# |_    Connection: close
+# |_http-cors: GET POST PUT DELETE OPTIONS
+# |_http-open-proxy: Proxy might be redirecting requests
+# |_http-title: Site doesn't have a title.
+#
+# 8001/tcp open     http           Node.js Express framework
+# |_http-cors: GET POST PUT DELETE
+# |_http-title: 404 : Not Found
+# Cf. https://github.com/twbs/bootstrap
+#
+# 8080/tcp open     http           lighttpd
+# |_http-title: 404 - Not Found
+# 8443/tcp open     ssl/https-alt?
+# |_ssl-date: 1970-01-01T07:46:28+00:00; -49y317d01h46m15s from scanner time.
+
 media_player:
   - platform: samsungtv
     name: Samsung TV
     host: 192.168.86.72
     port: 8001
     mac: 54:88:0e:23:6d:b3
+
+# # New platform from the community store
+# media_player:
+#   - platform: samsungtv_custom
+#     name: Samsung TV
+#     mac: 54:88:0e:23:6d:b3
+#     host: 192.168.86.72
+#     port: 8001
+#     sourcelist: '{"Chromecast": "KEY_HDMI4"}'
+#     protocol: ctl  # ctl, ws, ctl_beta, ctl_qled
 
 # ================
 # Services
@@ -89,10 +142,18 @@ wwlln:
   latitude: -33.7008
   longitude: 151.086
 
+# Integrate MQTT into homeassistant
 mqtt:
-  broker: 192.168.86.168
+  #broker: core-mosquitto
+  broker: 192.168.86.168  # Remove if you want to use builtin-in MQTT broker
   discovery: true
-  discovery_prefix: zigbee2mqtt
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+  # discovery_prefix: zigbee2mqtt
   username: !secret mqtt_user
   password: !secret master3
 
