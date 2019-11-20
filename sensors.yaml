@@ -139,13 +139,15 @@
   friendly: false
   friendly_state_format: '{max}, {summary}'
   monitored_conditions:
+    - 'chance_of_rain'
+    - 'detailed_summary'
+    - 'fire_danger'
+    - 'icon'
     - 'max'
     - 'min'
-    - 'chance_of_rain'
     - 'possible_rainfall'
     - 'summary'
-    - 'detailed_summary'
-    - 'icon'
+    - 'uv_alert'
 
 # https://www.home-assistant.io/components/mold_indicator/
 - platform: mold_indicator
