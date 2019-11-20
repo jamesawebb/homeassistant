@@ -46,3 +46,15 @@
   - service: switch.turn_off
     data:
       entity_id: switch.doorstrike_relay
+
+- id: frontdoor_opened
+  alias: The front door was opened
+  trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.frontdoor_contact
+    to:
+      "on"
+  action:
+  - service: timer.cancel
+    entity_id: timer.arrived_home

@@ -82,6 +82,4 @@
           text: >
             Door unlocked with **{{ state_attr("timer.arrived_home", "remaining") }}** left on the timer.
           parse_str: true
-  - service: timer.cancel
-    entity_id: timer.arrived_home
 
