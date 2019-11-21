@@ -141,12 +141,12 @@
   monitored_conditions:
     - 'chance_of_rain'
     - 'detailed_summary'
-    - 'fire_danger'
     - 'icon'
     - 'max'
     - 'min'
     - 'possible_rainfall'
     - 'summary'
+    - 'fire_danger'
     - 'uv_alert'
 
 # https://www.home-assistant.io/components/mold_indicator/
