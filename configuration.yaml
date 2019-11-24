@@ -160,7 +160,14 @@ mqtt:
 tts:
   - platform: google_translate
 
-influxdb: !include influxdb.yaml
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_user
+  password: !secret basic
+  max_retries: 3
+  default_measurement: state
 
 google:
   client_id: !secret google_hassio_client_id
@@ -185,6 +192,10 @@ input_boolean:
     name: Frontdoor unlocked
     initial: off
     icon: mdi:lock-outline
+  house_alarmed:
+    name: House alarmed
+    initial: off
+    icon: mdi:shield-home
 
 input_select:
   frontdoor_mode:
@@ -209,6 +220,10 @@ timer:
 # ================
 
 webhook:
+
+shell_command:
+  motion_on: 'curl http://famidamily.duckdns.org:7999/1/detection/start'
+  motion_off: 'curl http://famidamily.duckdns.org:7999/1/detection/pause'
 
 zigbee2mqtt_networkmap:
   #topic: zigbee2mqtt
