@@ -1,4 +1,30 @@
-- id: motion
+# ================
+# (Dis)arming house
+# ================
+
+- id: house_armed
+  alias: House is armed - begin motion detection
+  trigger:
+    platform: state
+    entity_id: input_boolean.house_alarmed
+    to: 'on'
+  action:
+  - service: shell_command.motion_on
+    
+- id: house_disarmed
+  alias: House is disarmed - pause motion detection
+  trigger:
+    platform: state
+    entity_id: input_boolean.house_alarmed
+    to: 'off'
+  action:
+  - service: shell_command.motion_off
+
+# ================
+# Motion detection
+# ================
+
+- id: motion_lounge
   alias: Movement detected in the lounge
   trigger:
     platform: webhook
@@ -7,9 +33,9 @@
   #   condition: zone
   #   entity_id: group.famidamily
   #   zone: zone.not_home
-  condition:
-    condition: template
-    value_template: '{{ states("group.famidamily") != "home" }}'
+  # condition:
+  #   condition: template
+  #   value_template: '{{ states("group.famidamily") != "home" }}'
   action:
   - service: hangouts.send_message
     data_template:
@@ -20,29 +46,12 @@
           is_italic: false
           is_strikethrough: false
           text: Movement detected in the lounge.
+          text: >
+            Movement detected in the lounge.
+            See https://famidamily.duckdns.org:8123/a0d7b954_motioneye
           parse_str: true
 
-- id: motion
-  alias: Movement detected in the living room
-  trigger:
-    platform: webhook
-    webhook_id: motion_living_room
-  condition:
-    condition: template
-    value_template: '{{ states("group.famidamily") != "home" }}'
-  action:
-  - service: hangouts.send_message
-    data_template:
-      target:
-        - id: !secret hangouts_hassio
-      message:
-        - is_bold: false
-          is_italic: false
-          is_strikethrough: false
-          text: Movement detected in the living room.
-          parse_str: true
-
-- id: motion
+- id: motion_garage
   alias: Movement detected in the garage
   trigger:
     platform: webhook
@@ -62,7 +71,7 @@
           text: Movement detected in the garage.
           parse_str: true
 
-- id: motion
+- id: motion_yurt
   alias: Movement detected in the yurt
   trigger:
     platform: webhook
