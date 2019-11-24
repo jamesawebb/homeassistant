@@ -1,3 +1,7 @@
+# ================
+# Presence detection
+# ================
+
 - id: someone_home
   alias: Someone has arrived home
   trigger:
@@ -24,6 +28,40 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.frontdoor_unlock
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.house_alarmed
+
+- id: family_away
+  alias: Family have left home
+  # trigger:
+  #   platform: zone
+  #   entity_id: 
+  #     - group.famidamily
+  #   zone: zone.home
+  #   event: leave
+  trigger:
+    platform: state
+    entity_id: group.famidamily
+    from: home
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            The **family** have left home.
+          parse_str: true
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.frontdoor_unlock
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.house_alarmed
 
 - id: someone_leaving_waitara
   alias: Someone left Waitara station
