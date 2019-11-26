@@ -52,8 +52,8 @@
             **Dingdong**:
             Someone is at the frontdoor
           parse_str: true     # Parse text as markdown
-  # - entity_id: media_player.house
-  #   service: tts.google_translate_say
+  # - service: tts.google_translate_say
+  #   entity_id: media_player.house
   #   data_template:
   #     message: Someone is at the front door
 
@@ -82,4 +82,3 @@
           text: >
             Door unlocked with **{{ state_attr("timer.arrived_home", "remaining") }}** left on the timer.
           parse_str: true
-
