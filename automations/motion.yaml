@@ -21,7 +21,7 @@
   - service: shell_command.motion_off
 
 # ================
-# Motion detection
+# Motion detection webhooks
 # ================
 
 - id: motion_lounge
@@ -36,6 +36,10 @@
   # condition:
   #   condition: template
   #   value_template: '{{ states("group.famidamily") != "home" }}'
+  condition:
+    condition: state
+    entity_id: input_boolean.house_alarmed
+    state: "on"
   action:
   - service: hangouts.send_message
     data_template:
