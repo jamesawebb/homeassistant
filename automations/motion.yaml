@@ -50,6 +50,6 @@
           is_italic: false
           is_strikethrough: false
           text: >
-            Movement detected in the **{{ trigger.query.location }}**.
+            Movement detected in the **{{ trigger.query.location | title }}**.
             See https://famidamily.duckdns.org:8123/a0d7b954_motioneye
           parse_str: true
