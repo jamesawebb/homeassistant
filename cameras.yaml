@@ -1,4 +1,9 @@
 - platform: generic
+  stream_source: rtsp://192.168.86.45:554/
+  still_image_url: http://192.168.86.45:554/snapshot
+  name: garage
+
+- platform: generic
   stream_source: rtsp://192.168.86.47:554/
   still_image_url: http://192.168.86.47:554/snapshot
   name: lounge
@@ -7,11 +12,6 @@
   stream_source: rtsp://192.168.86.48:554/
   still_image_url: http://192.168.86.48:554/snapshot
   name: yurt
-
-- platform: generic
-  stream_source: rtsp://192.168.86.45:554/
-  still_image_url: http://192.168.86.45:554/snapshot
-  name: garage
 
 - platform: generic
   stream_source: rtsp://192.168.86.49:554/
