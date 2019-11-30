@@ -58,12 +58,12 @@ light: !include light.yaml
 
 # https://www.home-assistant.io/integrations/android_ip_webcam/
 # ...turns any Android phone or tablet into a network camera with multiple viewing options
-# android_ip_webcam:
-#   - name: Stove
-#     host: 192.168.86.47
-#     port: 8080
-#     username: james
-#     password: !secret basic
+android_ip_webcam:
+  - name: Stove
+    host: 192.168.86.246
+    port: 8080
+    # username: james
+    # password: !secret basic
 
 switch:
   - platform: broadlink
