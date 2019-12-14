@@ -18,6 +18,14 @@
   still_image_url: http://admin@192.168.86.49:554/snapshot
   name: outside
 
+- platform: generic
+  stream_source: rtsp://jaw:cadbury@192.168.86.246:8080/h264_ulaw.sdp
+  still_image_url: http://jaw:cadbury@192.168.86.246:8080/snapshot
+  name: stove_ulaw
+
+- platform: onvif
+  host: 192.168.86.246
+
 # ================
 # Third-party
 # ================
