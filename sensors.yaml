@@ -1,6 +1,6 @@
 - platform: google_wifi
 
-# https://www.home-assistant.io/components/systemmonitor/
+# Cf. https://www.home-assistant.io/components/systemmonitor/
 - platform: systemmonitor
   resources:
   - type: disk_use_percent
@@ -10,7 +10,7 @@
   - type: last_boot
   - type: load_5m
 
-# https://github.com/hassio-addons/addon-glances/blob/v0.5.5/README.md
+# Cf. https://github.com/hassio-addons/addon-glances/blob/v0.5.5/README.md
 - platform: glances
   host: 127.0.0.1
   port: 61209
@@ -122,7 +122,7 @@
 
 - platform: yr     # Weather prediction
 
-# https://www.home-assistant.io/components/bom/
+# Cf. https://www.home-assistant.io/components/bom/
 - platform: bom
   station: !secret my_bom_station
   name: !secret my_bom_name
@@ -139,8 +139,8 @@
     - wind_spd_kmh
     - wind_spd_kt
 
-# https://home-assistant.io/components/sensor.bom_forecast/
-# https://github.com/DavidFW1960/bom_forecast
+# Cf. https://home-assistant.io/components/sensor.bom_forecast/
+# Cf. https://github.com/DavidFW1960/bom_forecast
 - platform: bom_forecast
   product_id: !secret my_bom_product_id2
   name: !secret my_bom_name
@@ -159,12 +159,21 @@
     - 'fire_danger'
     - 'uv_alert'
 
-# https://www.home-assistant.io/components/mold_indicator/
+# Cf. https://www.home-assistant.io/components/mold_indicator/
 - platform: mold_indicator
   indoor_temp_sensor: sensor.bedroom_temperature
   indoor_humidity_sensor: sensor.bedroom_relative_humidity
   outdoor_temp_sensor: sensor.outside_patio_temperature
   calibration_factor: 2.0
+
+# Cf. https://www.home-assistant.io/integrations/airvisual/
+- platform: airvisual
+  api_key: !secret airvisual-key
+  #monitored_conditions:
+  #  - us
+  #city: hornsby
+  #state: new-south-wales
+  #country: australia
 
 - platform: template
   sensors:
