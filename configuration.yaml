@@ -13,7 +13,7 @@ http:
   ssl_key: /ssl/privkey.pem
 
 frontend:
-  themes: !include themes/dark_cyan.yaml
+  themes: !include_dir_merge_named themes
 
 hacs:
   token: !secret my_github_hacs_token
