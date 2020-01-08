@@ -29,3 +29,5 @@ switch.yurt_hot_water_cylinder_relay:
   icon: mdi:water-boiler
 weather.105_rosemead:
   icon: mdi:weather-lightning-rainy
+media_player.googlehome8810:
+  friendly_name: Kitchen
