@@ -145,7 +145,7 @@ wwlln:
 # Integrate MQTT into homeassistant
 mqtt:
   #broker: core-mosquitto
-  broker: 192.168.86.168  # Remove if you want to use builtin-in MQTT broker
+  broker: famidamily.duckdns.org  # Remove if you want to use builtin-in MQTT broker
   discovery: true
   birth_message:
     topic: 'hass/status'
@@ -176,6 +176,9 @@ google:
 
 pi_hole:
   host: famidamily.duckdns.org:4865
+
+glances:
+  host: famidamily.duckdns.org
 
 # ================
 # Inputs

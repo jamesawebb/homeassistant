@@ -11,7 +11,7 @@
   condition: []
   action:
   - data:
-      host: 192.168.86.198
+      host: famidamily.duckdns.org
       packet: "JgBQAAABKJURFBITERMTExETEhQRExQ2EhMSExITERQSNxM3EjgSExITFBESOBE5ERMTExE5ETgSOBI4ERQSExE5ETkRExITEgAF0QABKEoTAA0FAAAAAAAAAAA=="
     service: broadlink.send
 
@@ -26,7 +26,7 @@
   action:
   - service: broadlink.send
     data:
-      host: 192.168.86.198
+      host: famidamily.duckdns.org
       packet: "JgBYAAABJ5UTExETEhQRExITEhMSExE5ERQSExETExMROBI4EjgRFBITETkRExM3EhQRExI4EjgSNxMTETkRExI4EjgSExEUEgAF0QABJ0sSAAxsAAEoSxIADQU="
 
 # Off
@@ -42,6 +42,6 @@
   condition: []
   action:
   - data:
-      host: 192.168.86.198
+      host: famidamily.duckdns.org
       packet: "JgBQAAABKZURFBITERMTExETEhQRExI4EhMRFBITERQSNxM3EjgSExI4EjgRORE5ETkRExIUETgSExITERQSExETEzcSOBITEgAFzgABKkkUAA0FAAAAAAAAAAA=="
     service: broadlink.send
