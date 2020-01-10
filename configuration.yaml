@@ -56,14 +56,14 @@ camera: !include cameras.yaml
 climate: !include climate.yaml
 light: !include light.yaml
 
-# https://www.home-assistant.io/integrations/android_ip_webcam/
-# ...turns any Android phone or tablet into a network camera with multiple viewing options
-android_ip_webcam:
-  - name: Stove
-    host: 192.168.86.246
-    port: 8080
-    # username: james
-    # password: !secret basic
+# # https://www.home-assistant.io/integrations/android_ip_webcam/
+# # ...turns any Android phone or tablet into a network camera with multiple viewing options
+# android_ip_webcam:
+#   - name: Stove
+#     host: 192.168.86.246
+#     port: 8080
+#     # username: james
+#     # password: !secret basic
 
 switch:
   - platform: broadlink
@@ -175,9 +175,7 @@ google:
   track_new_calendar: true
 
 pi_hole:
-  host: localhost:4865
-  ssl: true
-  verify_ssl: false
+  host: famidamily.duckdns.org:4865
 
 # ================
 # Inputs
