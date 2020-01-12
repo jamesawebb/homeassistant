@@ -1,0 +1,21 @@
+# ================
+# Influxdb alerts webhooks
+# ================
+
+- id: influxdb_alert
+  alias: Alert fired from Influxdb
+  trigger:
+    platform: webhook
+    webhook_id: influxdb_alert
+  action:
+  - service: hangouts.send_message
+    data_template:
+      target:
+        - id: !secret hangouts_hassio
+      message:
+        - is_bold: false
+          is_italic: false
+          is_strikethrough: false
+          text: >
+            {{ trigger.json.id }} now **{{ trigger.json.level }}** at {{ trigger.json.message }}%.
+          parse_str: true
