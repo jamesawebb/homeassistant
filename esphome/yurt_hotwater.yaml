@@ -1,4 +1,0 @@
-substitutions:
-  id: yurt_hotwater
-  friendly_name: Yurt Hot Water Cylinder
-<<: !include templates/sonoff.yaml
