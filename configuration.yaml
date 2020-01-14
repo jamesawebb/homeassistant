@@ -72,6 +72,21 @@ switch:
     type: rm_mini
     switches: !include broadlink.yaml
 
+## Replaced by sonoff
+# tuya:
+#   username: !secret tuya_username
+#   password: !secret tuya_password
+#   country_code: 61
+#   platform: smart_life
+
+# Cf. https://github.com/peterbuga/HASS-sonoff-ewelink
+# Pow R2 and two switches
+sonoff:
+  username: !secret ewelink_username
+  password: !secret public
+  api_region: us
+  entity_prefix: True
+
 # State is always on and unable to control (but port 8001 is open)
 # Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
 #
