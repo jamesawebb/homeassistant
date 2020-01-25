@@ -85,7 +85,7 @@ sonoff:
   username: !secret ewelink_username
   password: !secret public
   api_region: us
-  entity_prefix: True
+  #entity_prefix: True
 
 # State is always on and unable to control (but port 8001 is open)
 # Samsung UA65HU9000 UHD LED TV 2014 (WiFi)
