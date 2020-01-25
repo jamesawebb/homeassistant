@@ -6,10 +6,12 @@ person.james:
   entity_picture: /local/icons/jaw.ico
 person.chianti:
   entity_picture: /local/icons/chianti.ico
-person.kirwin:
-  entity_picture: /local/icons/kaw.ico
 person.tania:
   entity_picture: /local/icons/tania.jpg
+person.kirwin:
+  entity_picture: /local/icons/kaw.ico
+person.kirwin_2:
+  entity_picture: /local/icons/kaw.ico
 switch.door_strike_release:
   friendly_name: Frontdoor
   icon: mdi:door-open
@@ -31,3 +33,7 @@ weather.105_rosemead:
   icon: mdi:weather-lightning-rainy
 media_player.googlehome8810:
   friendly_name: Kitchen
+switch.sonoff_100087f180:
+  icon: mdi:fan
+switch.sonoff_10007c75e6:
+  icon: mdi:hot-tub
