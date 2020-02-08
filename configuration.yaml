@@ -73,7 +73,7 @@ switch:
     type: rm_mini
     switches: !include broadlink.yaml
 
-## Replaced by sonoff
+# # Replaced by sonoff
 # tuya:
 #   username: !secret tuya_username
 #   password: !secret tuya_password
