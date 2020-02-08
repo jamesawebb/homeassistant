@@ -17,6 +17,7 @@ ota:
 
 # https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/
 # https://esphome.io/components/esp32_camera.html#configuration-variables
+# Help at https://randomnerdtutorials.com/esp32-cam-troubleshooting-guide/
 esp32_camera:
   name: ${friendly_name} Camera
   external_clock:
