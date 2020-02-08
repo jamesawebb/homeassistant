@@ -151,11 +151,11 @@ weather:
     station: IDN60901.94759
     name: Terrey Hills
 
-# Cf. https://www.home-assistant.io/integrations/wwlln/
-wwlln:
-  radius: 25
-  latitude: -33.7008
-  longitude: 151.086
+# # Cf. https://www.home-assistant.io/integrations/wwlln/
+# wwlln:
+#   radius: 25
+#   latitude: -33.7008
+#   longitude: 151.086
 
 # Integrate MQTT into homeassistant
 mqtt:
