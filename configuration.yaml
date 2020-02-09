@@ -24,6 +24,7 @@ hacs:
 automation: !include_dir_merge_list automations
 group: !include groups.yaml
 logbook: !include logbook.yaml
+history: !include history.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
 #alert: !include alerts.yaml
