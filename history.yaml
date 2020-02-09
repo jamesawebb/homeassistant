@@ -1,0 +1,7 @@
+exclude:
+  entities:
+  - hangouts.conversations
+  domains:
+  - input_boolean
+    zone
+    device_tracker
