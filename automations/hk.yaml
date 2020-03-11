@@ -1,6 +1,7 @@
 # On, Tape
 - id: hk_casting
   alias: Harman Kardon AVR Casting
+  # Cf.  https://www.home-assistant.io/docs/automation/trigger/#multiple-triggers
   trigger:
   - entity_id: media_player.harman_kardon_avr
     platform: state
@@ -33,9 +34,9 @@
 - id: hk_casting_off
   alias: Harman Kardon AVR Casting Off
   trigger:
-  - entity_id: media_player.harman_kardon_avr
-    platform: state
-    to: "off"
+  # - entity_id: media_player.harman_kardon_avr
+  #   platform: state
+  #   to: "off"
   - entity_id: media_player.samsung_tv
     platform: state
     to: "off"
