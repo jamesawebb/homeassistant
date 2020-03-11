@@ -1,4 +1,5 @@
-- platform: google_wifi
+# Looks like Google have removed the API for this platform.
+#- platform: google_wifi
 
 # Cf. https://www.home-assistant.io/components/systemmonitor/
 - platform: systemmonitor
@@ -10,15 +11,16 @@
   - type: last_boot
   - type: load_5m
 
-# Cf. https://github.com/hassio-addons/addon-glances/blob/v0.5.5/README.md
-- platform: glances
-  host: 127.0.0.1
-  port: 61209
-  version: 3
-  resources:
-    - 'processor_load'
-    - 'memory_use_percent'
-    - 'disk_use_percent'
+# Removed in lieu of Glances integration
+# # Cf. https://github.com/hassio-addons/addon-glances/blob/v0.5.5/README.md
+# - platform: glances
+#   host: 127.0.0.1
+#   port: 61209
+#   version: 3
+#   resources:
+#     - 'processor_load'
+#     - 'memory_use_percent'
+#     - 'disk_use_percent'
 
 - platform: github
   access_token: !secret my_github_repo_token
