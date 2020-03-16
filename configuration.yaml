@@ -140,8 +140,7 @@ google:
 
 # Cf. https://www.home-assistant.io/integrations/pi_hole
 pi_hole:
-  # IP works here - hostnames don't
-  host: 192.168.86.168:4865
+  host: localhost:4865
 
 glances:
 
