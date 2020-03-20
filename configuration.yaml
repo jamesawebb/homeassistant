@@ -23,7 +23,10 @@ hacs:
 # https://www.home-assistant.io/docs/configuration/splitting_configuration/#advanced-usage
 automation: !include_dir_merge_list automations
 group: !include groups.yaml
-logbook: !include logbook.yaml
+logbook: #!include logbook.yaml
+# https://www.home-assistant.io/integrations/logger/#log-levels
+logger:
+  default: info
 history: !include history.yaml
 notify: !include notifications.yaml
 recorder: !include recorder.yaml
@@ -143,6 +146,10 @@ pi_hole:
   host: localhost:4865
 
 glances:
+
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_secret
 
 # ================
 # Inputs
