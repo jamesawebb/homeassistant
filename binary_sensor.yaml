@@ -27,3 +27,6 @@
     temp_diff_lounge_outside:
       value_template: "{{ (states('sensor.lounge_temperature') | float - states('sensor.outside_patio_temperature') | float) | abs | round >= 3 }}"
       friendly_name: Difference between lounge and outside patio exceeds 3°C
+
+- platform: workday
+  country: AU
