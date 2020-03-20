@@ -1,0 +1,16 @@
+- id: 'spotify'
+  alias: Inspire kids
+  description: Wake the kids up in the morning with a Spotify playlist
+  trigger:
+  - at: 07:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      media_content_type: playlist
+      media_playlist: Favourites
+    entity_id: media_player.spotify_james_a_webb
+    service: media_player.media_play
