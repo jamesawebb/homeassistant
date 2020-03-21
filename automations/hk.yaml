@@ -12,7 +12,7 @@
   condition: []
   action:
   - data:
-      host: famidamily.duckdns.org
+      host: 192.168.86.198
       packet: "JgBQAAABKJURFBITERMTExETEhQRExQ2EhMSExITERQSNxM3EjgSExITFBESOBE5ERMTExE5ETgSOBI4ERQSExE5ETkRExITEgAF0QABKEoTAA0FAAAAAAAAAAA=="
     service: broadlink.send
 
@@ -20,14 +20,16 @@
 - id: hd_tv_on
   alias: Harman Kardon AVR TV On
   trigger:
-  - entity_id: media_player.samsung_tv
+  - entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "on"
   condition: []
   action:
+  # - service: switch.turn_on
+  #   entity_id: switch.harman_kardon_pwr
   - service: broadlink.send
     data:
-      host: famidamily.duckdns.org
+      host: 192.168.86.198
       packet: "JgBYAAABJ5UTExETEhQRExITEhMSExE5ERQSExETExMROBI4EjgRFBITETkRExM3EhQRExI4EjgSNxMTETkRExI4EjgSExEUEgAF0QABJ0sSAAxsAAEoSxIADQU="
 
 # Off
@@ -37,12 +39,14 @@
   # - entity_id: media_player.harman_kardon_avr
   #   platform: state
   #   to: "off"
-  - entity_id: media_player.samsung_tv
+  - entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "off"
   condition: []
   action:
-  - data:
-      host: famidamily.duckdns.org
-      packet: "JgBQAAABKZURFBITERMTExETEhQRExI4EhMRFBITERQSNxM3EjgSExI4EjgRORE5ETkRExIUETgSExITERQSExETEzcSOBITEgAFzgABKkkUAA0FAAAAAAAAAAA=="
-    service: broadlink.send
+  - service: switch.turn_off
+    entity_id: switch.harman_kardon_pwr
+  # - service: broadlink.send
+  #   data:
+  #     host: 192.168.86.198
+  #     packet: "JgBQAAABKZURFBITERMTExETEhQRExI4EhMRFBITERQSNxM3EjgSExI4EjgRORE5ETkRExIUETgSExITERQSExETEzcSOBITEgAFzgABKkkUAA0FAAAAAAAAAAA=="
