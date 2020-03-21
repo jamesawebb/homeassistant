@@ -41,6 +41,8 @@
   - condition: state
     entity_id: 'media_player.harman_kardon_avr'
     state: 'off'
+    for:
+      seconds: 10
   action:
   - service: switch.turn_off
     entity_id: switch.harman_kardon_pwr
@@ -50,12 +52,14 @@
   trigger:
   - entity_id: media_player.harman_kardon_avr
     platform: state
-    to: "off"
+    to: 'off'
   condition:
   # Only switch HK off if the TV is off too
   - condition: state
     entity_id: 'media_player.samsung_ua65hu9000'
     state: 'off'
+    for:
+      seconds: 10
   action:
   - service: switch.turn_off
     entity_id: switch.harman_kardon_pwr
