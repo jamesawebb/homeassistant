@@ -1,4 +1,17 @@
 - platform: generic_thermostat
+  name: Kirwin Aircon
+  heater: switch.sonoff_100087f180
+  target_sensor: sensor.rumpus_temperature
+  ac_mode: true
+  min_temp: 16
+  max_temp: 22
+  target_temp: 20
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  precision: 0.1
+  initial_hvac_mode: "off"
+
+- platform: generic_thermostat
   name: Beer
   heater: switch.beer_warmer_relay
   target_sensor: sensor.beer_temperature
