@@ -42,3 +42,9 @@ switch.sonoff_10007c75e6:
 switch.sonoff_100087fc2c:
   friendly_name: Chianti Aircon
   icon: mdi:air-conditioner
+sensor.rumpus_temperature:
+  friendly_name: Kirwin Temperature
+sensor.rumpus_pressure:
+  friendly_name: Kirwin Pressure
+sensor.rumpus_relative_humidity:
+  friendly_name: Kirwin Relative Humidity
