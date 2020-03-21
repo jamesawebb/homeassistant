@@ -24,9 +24,6 @@
     to: "on"
   condition: []
   action:
-  ## Only one send at-a-time
-  # - service: switch.turn_on
-  #   entity_id: switch.harman_kardon_pwr
   # Switch Harman Kardon to "VID1"
   - service: broadlink.send
     data:
@@ -36,9 +33,6 @@
 - id: hk_tv_off_casting_off
   alias: Samsung TV switched off, no casting
   trigger:
-  # - entity_id: media_player.harman_kardon_avr
-  #   platform: state
-  #   to: "off"
   - entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "off"
@@ -53,7 +47,6 @@
 
 - id: hk_casting_off_tv_off
   alias: Harman Kardon AVR casting off, TV off
-  # Cf.  https://www.home-assistant.io/docs/automation/trigger/#multiple-triggers
   trigger:
   - entity_id: media_player.harman_kardon_avr
     platform: state
