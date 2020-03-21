@@ -13,4 +13,4 @@
       media_content_type: playlist
       media_playlist: Favourites
     entity_id: media_player.spotify_james_a_webb
-    service: media_player.media_play
+    service: media_player.play_media
