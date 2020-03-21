@@ -23,7 +23,7 @@ hacs:
 # https://www.home-assistant.io/docs/configuration/splitting_configuration/#advanced-usage
 automation: !include_dir_merge_list automations
 group: !include groups.yaml
-logbook: #!include logbook.yaml
+logbook: !include logbook.yaml
 # https://www.home-assistant.io/integrations/logger/#log-levels
 logger:
   default: info
