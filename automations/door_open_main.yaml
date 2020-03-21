@@ -1,4 +1,4 @@
-- id: door_open
+- id: door_open_main
   alias: A door has been left open
   trigger:
   - platform: state

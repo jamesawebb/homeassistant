@@ -10,7 +10,7 @@
     entity_id: timer.arrived_home
 
 # Frontdoor locked
-- id: frontdoor_to_unlock
+- id: frontdoor_to_doorbell
   alias: Regular doorbell
   trigger:
   - entity_id: input_boolean.frontdoor_unlock

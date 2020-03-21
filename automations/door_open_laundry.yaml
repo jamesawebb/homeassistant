@@ -1,4 +1,4 @@
-- id: door_open
+- id: door_open_laundry
   alias: Laundry door open
   trigger:
   - platform: state
