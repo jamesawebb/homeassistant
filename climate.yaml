@@ -3,9 +3,22 @@
   heater: switch.sonoff_100087f180
   target_sensor: sensor.rumpus_temperature
   ac_mode: true
-  min_temp: 16
-  max_temp: 22
-  target_temp: 20
+  min_temp: 20
+  max_temp: 24
+  target_temp: 22
+  cold_tolerance: 1.0
+  hot_tolerance: 1.0
+  precision: 0.1
+  initial_hvac_mode: "off"
+
+- platform: generic_thermostat
+  name: Chianti Aircon
+  heater: switch.sonoff_100087fc2c
+  target_sensor: sensor.upstairs_attic_temperature
+  ac_mode: true
+  min_temp: 20
+  max_temp: 24
+  target_temp: 22
   cold_tolerance: 1.0
   hot_tolerance: 1.0
   precision: 0.1
