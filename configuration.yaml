@@ -8,9 +8,10 @@ homeassistant:
 default_config:
 
 http:
-  base_url: https://famidamily.duckdns.org:8123
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  base_url: famidamily.duckdns.org
+  ## Move SSL to nginxy proxy
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
 
 frontend:
   themes: !include_dir_merge_named themes
@@ -197,7 +198,7 @@ shell_command:
   motion_on: 'curl http://famidamily.duckdns.org:7999/1/detection/start'
   motion_off: 'curl http://famidamily.duckdns.org:7999/1/detection/pause'
 
-zigbee2mqtt_networkmap:
+#zigbee2mqtt_networkmap:
   #topic: zigbee2mqtt
 
 panel_iframe:
