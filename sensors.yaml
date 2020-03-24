@@ -168,15 +168,6 @@
   outdoor_temp_sensor: sensor.outside_patio_temperature
   calibration_factor: 2.0
 
-# Cf. https://www.home-assistant.io/integrations/airvisual/
-- platform: airvisual
-  api_key: !secret airvisual-key
-  #monitored_conditions:
-  #  - us
-  #city: hornsby
-  #state: new-south-wales
-  #country: australia
-
 - platform: template
   sensors:
     bedroom_diff:

@@ -7,8 +7,10 @@ homeassistant:
 
 default_config:
 
+# Cf. https://www.home-assistant.io/integrations/http/
 http:
-  base_url: famidamily.duckdns.org
+  server_port: 8123
+  base_url: https://famidamily.duckdns.org
   ## Move SSL to nginxy proxy
   # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
@@ -152,6 +154,15 @@ spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_secret
 
+# Cf. https://www.home-assistant.io/integrations/airvisual/
+airvisual:
+  api_key: !secret airvisual-key
+  #monitored_conditions:
+  #  - us
+  #city: hornsby
+  #state: new-south-wales
+  #country: australia
+
 # ================
 # Inputs
 # ================
@@ -198,14 +209,14 @@ shell_command:
   motion_on: 'curl http://famidamily.duckdns.org:7999/1/detection/start'
   motion_off: 'curl http://famidamily.duckdns.org:7999/1/detection/pause'
 
-#zigbee2mqtt_networkmap:
+zigbee2mqtt_networkmap:
   #topic: zigbee2mqtt
 
-panel_iframe:
-  networkmap:
-    title: 'Zigbee Map'
-    icon: 'mdi:graphql'
-    # You can set the graphviz engine via URL Parameter: 
-    # map.html?engine=circo (Default: circo,
-    # [Supported Engines](https://github.com/mdaines/viz.js/wiki/Supported-Graphviz-Features))  
-    url: '/local/zigbee2mqtt_networkmap/map.html'
+# panel_iframe:
+#   networkmap:
+#     title: 'Zigbee Map'
+#     icon: 'mdi:graphql'
+#     # You can set the graphviz engine via URL Parameter: 
+#     # map.html?engine=circo (Default: circo,
+#     # [Supported Engines](https://github.com/mdaines/viz.js/wiki/Supported-Graphviz-Features))  
+#     url: '/local/zigbee2mqtt_networkmap/map.html'
