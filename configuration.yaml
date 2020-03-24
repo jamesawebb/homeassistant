@@ -11,7 +11,7 @@ default_config:
 http:
   server_port: 8123
   base_url: https://famidamily.duckdns.org
-  ## Move SSL to nginxy proxy
+  # # Move SSL to nginxy proxy
   # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
 
