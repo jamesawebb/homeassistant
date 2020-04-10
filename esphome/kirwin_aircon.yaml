@@ -1,0 +1,4 @@
+substitutions:
+  id: kirwin_aircon
+  friendly_name: Kirwin Aircon
+<<: !include templates/sonoff.yaml
