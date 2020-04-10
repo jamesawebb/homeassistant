@@ -1,6 +1,6 @@
 - platform: generic_thermostat
   name: Kirwin Aircon
-  heater: switch.sonoff_100087f180
+  heater: switch.kirwin_aircon_relay
   target_sensor: sensor.rumpus_temperature
   ac_mode: true
   min_temp: 20
@@ -13,7 +13,7 @@
 
 - platform: generic_thermostat
   name: Chianti Aircon
-  heater: switch.sonoff_100087fc2c
+  heater: switch.chianti_aircon_relay
   target_sensor: sensor.upstairs_attic_temperature
   ac_mode: true
   min_temp: 20
