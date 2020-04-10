@@ -75,7 +75,7 @@ light: !include light.yaml
 
 switch:
   - platform: broadlink
-    host: 192.168.86.198
+    host: 192.168.86.75
     mac: "C8:F7:42:16:BC:E8"
     type: rm_mini
     switches: !include broadlink.yaml
@@ -145,6 +145,7 @@ google:
   track_new_calendar: true
 
 # Cf. https://www.home-assistant.io/integrations/pi_hole
+# Nb. this add-on is deprecated.
 pi_hole:
   host: localhost:4865
 
@@ -203,6 +204,7 @@ timer:
 # Extensions
 # ================
 
+# Cf. https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger
 webhook:
 
 shell_command:
