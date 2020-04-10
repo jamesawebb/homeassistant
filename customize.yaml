@@ -34,17 +34,17 @@ weather.105_rosemead:
   icon: mdi:weather-lightning-rainy
 media_player.googlehome8810:
   friendly_name: Kitchen
-switch.sonoff_100087f180:
-  friendly_name: Kirwin Aircon
-  icon: mdi:air-conditioner
+switch.sonoff_100087f180: {}
 switch.sonoff_10007c75e6:
   icon: mdi:hot-tub
-switch.sonoff_100087fc2c:
-  friendly_name: Chianti Aircon
-  icon: mdi:air-conditioner
+switch.sonoff_100087fc2c: {}
 sensor.rumpus_temperature:
   friendly_name: Kirwin Temperature
 sensor.rumpus_pressure:
   friendly_name: Kirwin Pressure
 sensor.rumpus_relative_humidity:
   friendly_name: Kirwin Relative Humidity
+switch.kirwin_aircon_relay:
+  icon: mdi:air-conditioner
+switch.chianti_aircon_relay:
+  icon: mdi:air-conditioner
