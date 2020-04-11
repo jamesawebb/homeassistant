@@ -38,6 +38,19 @@
   initial_hvac_mode: "off"
 
 - platform: generic_thermostat
+  name: Beer Lager
+  heater: switch.lager_warmer_relay
+  target_sensor: sensor.lager_temperature
+  ac_mode: false
+  min_temp: 16
+  max_temp: 22
+  target_temp: 19
+  cold_tolerance: 2.0
+  hot_tolerance: 1.0
+  precision: 0.1
+  initial_hvac_mode: "off"
+
+- platform: generic_thermostat
   name: Bedroom Heating Panel
   heater: switch.bedroom_heating_panel_relay
   target_sensor: sensor.bedroom_temperature
