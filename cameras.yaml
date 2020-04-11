@@ -1,22 +1,22 @@
 - platform: generic
-  stream_source: rtsp://admin:@192.168.86.45:554/
-  still_image_url: http://admin@192.168.86.45:554/snapshot
-  name: garage
+  stream_source: rtsp://admin:@192.168.86.179:554/
+  still_image_url: http://admin@192.168.86.179:554/snapshot
+  name: garage  # 30:4A:26:C5:DB:1C
 
 - platform: generic
   stream_source: rtsp://admin@192.168.86.47:554/
   still_image_url: http://admin:@192.168.86.47:554/snapshot
-  name: lounge
+  name: lounge  # 30:4A:26:C9:2D:04
 
 - platform: generic
-  stream_source: rtsp://admin@192.168.86.48:554/
-  still_image_url: http://admin:@192.168.86.48:554/snapshot
-  name: yurt
+  stream_source: rtsp://admin@192.168.86.178:554/
+  still_image_url: http://admin:@192.168.86.178:554/snapshot
+  name: outside  # 1C:BF:CE:A3:63:5F
 
 - platform: generic
-  stream_source: rtsp://admin:@192.168.86.250:554/
-  still_image_url: http://admin@192.168.86.250:554/snapshot
-  name: dining
+  stream_source: rtsp://admin:@192.168.86.188:554/
+  still_image_url: http://admin@192.168.86.188:554/snapshot
+  name: dining  # 30:4A:26:C6:A4:2E
 
 # - platform: generic
 #   stream_source: rtsp://jaw:cadbury@192.168.86.246:8080/h264_ulaw.sdp
