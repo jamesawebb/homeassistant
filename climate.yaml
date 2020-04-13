@@ -6,7 +6,7 @@
   min_temp: 20
   max_temp: 24
   target_temp: 22
-  cold_tolerance: 1.0
+  cold_tolerance: 2.0
   hot_tolerance: 1.0
   precision: 0.1
   initial_hvac_mode: "off"
@@ -19,7 +19,7 @@
   min_temp: 20
   max_temp: 24
   target_temp: 22
-  cold_tolerance: 1.0
+  cold_tolerance: 2.0
   hot_tolerance: 1.0
   precision: 0.1
   initial_hvac_mode: "off"
@@ -32,20 +32,20 @@
   min_temp: 16
   max_temp: 22
   target_temp: 19
-  cold_tolerance: 2.0
+  cold_tolerance: 0.5
   hot_tolerance: 1.0
   precision: 0.1
   initial_hvac_mode: "off"
 
 - platform: generic_thermostat
-  name: Beer Lager
+  name: Lager
   heater: switch.lager_warmer_relay
   target_sensor: sensor.lager_temperature
   ac_mode: false
   min_temp: 16
   max_temp: 22
   target_temp: 19
-  cold_tolerance: 2.0
+  cold_tolerance: 0.5
   hot_tolerance: 1.0
   precision: 0.1
   initial_hvac_mode: "off"
@@ -71,7 +71,7 @@
   min_temp: 0
   max_temp: 100
   target_temp: 70
-  cold_tolerance: 10.0
+  cold_tolerance: 5.0
   hot_tolerance: 10.0
   precision: 1.0
   initial_hvac_mode: "off"
