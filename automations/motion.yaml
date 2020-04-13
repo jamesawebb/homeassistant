@@ -10,7 +10,7 @@
     to: 'on'
   action:
   - service: shell_command.motion_on
-    
+
 - id: house_disarmed
   alias: House is disarmed - pause motion detection
   trigger:
