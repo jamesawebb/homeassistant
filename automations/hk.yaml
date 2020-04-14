@@ -12,7 +12,7 @@
   action:
   # Switch Harman Kardon to "Tape"
   - data:
-      host: 192.168.86.198
+      host: 192.168.86.75
       packet: "JgBQAAABKJURFBITERMTExETEhQRExQ2EhMSExITERQSNxM3EjgSExITFBESOBE5ERMTExE5ETgSOBI4ERQSExE5ETkRExITEgAF0QABKEoTAA0FAAAAAAAAAAA=="
     service: broadlink.send
 
@@ -27,7 +27,7 @@
   # Switch Harman Kardon to "VID1"
   - service: broadlink.send
     data:
-      host: 192.168.86.198
+      host: 192.168.86.75
       packet: "JgBYAAABJ5UTExETEhQRExITEhMSExE5ERQSExETExMROBI4EjgRFBITETkRExM3EhQRExI4EjgSNxMTETkRExI4EjgSExEUEgAF0QABJ0sSAAxsAAEoSxIADQU="
 
 - id: hk_tv_off_casting_off

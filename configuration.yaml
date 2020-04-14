@@ -75,6 +75,7 @@ light: !include light.yaml
 
 switch:
   - platform: broadlink
+    # If the IP address below changes, update the host: field in automations/hk.yaml.
     host: 192.168.86.75
     mac: "C8:F7:42:16:BC:E8"
     type: rm_mini
