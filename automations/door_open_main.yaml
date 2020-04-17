@@ -4,7 +4,7 @@
   - platform: state
     entity_id: 
     - binary_sensor.frontdoor_contact
-    - binary_sensor.laundry_sliding_door_contact
+    #- binary_sensor.laundry_sliding_door_contact
     to:
       "on"
     for:

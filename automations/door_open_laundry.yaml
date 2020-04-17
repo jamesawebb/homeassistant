@@ -1,16 +1,22 @@
 - id: door_open_laundry
-  alias: Laundry door open
+  alias: A door has been left open
   trigger:
   - platform: state
-    entity_id: binary_sensor.laundry_sliding_door_contact
+    entity_id: 
+    - binary_sensor.0x00158d00035c15c6_contact
     to:
       "on"
     for:
       seconds: 60
   condition:
     condition: template
-    value_template: "{{ (states('sensor.lounge_temperature') | float - states('sensor.laundry_temperature') | float) | abs | round(precision=1, method='ceil') >= 3 }}"
+    value_template: "{{ (states('sensor.laundry_temperature') | float - states('sensor.outside_patio_temperature') | float) | abs | round >= 3 }}"
   action:
+    # - service: persistent_notification.create
+    #   data_template:
+    #     message: >
+    #       **{{ trigger.to_state.attributes.friendly_name }}** door was *left open*!
+    #     title: Open door
     - service: hangouts.send_message
       data_template:
         target:
@@ -21,5 +27,5 @@
             is_strikethrough: false
             text: >
               **{{ trigger.to_state.attributes.friendly_name }}** door was *left open* with a temperature difference of 
-              {{ (states('sensor.lounge_temperature') | float - states('sensor.laundry_temperature') | float) | round(precision=1, method='ceil') }}°C!
+              {{ (states('sensor.lounge_temperature') | float - states('sensor.outside_patio_temperature') | float) | round }}°C!
             parse_str: true     # Parse text as markdown
