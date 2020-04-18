@@ -95,6 +95,7 @@ sonoff:
   password: !secret public
   api_region: us
   #entity_prefix: True
+  debug: False
 
 # ================
 # Services
