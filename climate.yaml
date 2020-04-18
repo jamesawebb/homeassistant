@@ -1,3 +1,7 @@
+# ================
+# Air conditioners
+# ================
+
 - platform: generic_thermostat
   name: Kirwin Aircon
   heater: switch.kirwin_aircon_relay
@@ -23,6 +27,10 @@
   hot_tolerance: 1.0
   precision: 0.1
   initial_hvac_mode: "off"
+
+# ================
+# Beer warmers
+# ================
 
 - platform: generic_thermostat
   name: Beer
@@ -50,6 +58,10 @@
   precision: 0.1
   initial_hvac_mode: "off"
 
+# ================
+# Heaters
+# ================
+
 - platform: generic_thermostat
   name: Bedroom Heating Panel
   heater: switch.bedroom_heating_panel_relay
@@ -62,6 +74,10 @@
   hot_tolerance: 2.0
   precision: 0.1
   initial_hvac_mode: "off"
+
+# ================
+# Dehumidifiers
+# ================
 
 - platform: generic_thermostat
   name: Dehumidifier
