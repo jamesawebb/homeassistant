@@ -1,5 +1,5 @@
-- id: 'spotify'
-  alias: Inspire kids
+- id: wake_up_the_kids
+  alias: Inspire kids through Spotify
   description: Wake the kids up in the morning with a Spotify playlist
   trigger:
   - at: 07:00
