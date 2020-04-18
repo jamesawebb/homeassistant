@@ -10,7 +10,7 @@ default_config:
 # Cf. https://www.home-assistant.io/integrations/http/
 http:
   server_port: 8123
-  base_url: https://famidamily.duckdns.org
+  base_url: https://ha.webb.kiwi.nz
   # # Move SSL to nginxy proxy
   # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
