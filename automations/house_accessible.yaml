@@ -1,0 +1,22 @@
+- id: door_open_laundry_and_sliding
+  alias: Both laundry and laundry sliding door have been left open
+  trigger:
+  - platform: state
+    entity_id: 
+    - binary_sensor.0x00158d00035c15c6_contact
+    - binary_sensor.laundry_sliding_door_contact
+    to:
+      "on"
+    for:
+      seconds: 60
+  action:
+    - service: hangouts.send_message
+      data_template:
+        target:
+          - id: !secret hangouts_hassio
+        message:
+          - is_bold: false
+            is_italic: false
+            is_strikethrough: false
+            text: "Both laundry and laundry sliding doors have been left open.  **Sabre!**"
+            parse_str: true     # Parse text as markdown
