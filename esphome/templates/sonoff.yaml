@@ -6,12 +6,12 @@ esphome:
 wifi:
   ssid: !secret network
   password: !secret wpa2
-  # # Uncomment below to override IP address
-  # # Cf. https://esphome.io/components/wifi.html#manual-ips
-  manual_ip:
-    static_ip: 192.168.86.204
-    gateway: 192.168.86.1
-    subnet: 255.255.255.0
+  # # # Uncomment below to override IP address
+  # # # Cf. https://esphome.io/components/wifi.html#manual-ips
+  # manual_ip:
+  #   static_ip: 192.168.86.204
+  #   gateway: 192.168.86.1
+  #   subnet: 255.255.255.0
   # power_save_mode: none  # light high
 
 logger:
