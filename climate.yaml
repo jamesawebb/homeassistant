@@ -40,8 +40,8 @@
   min_temp: 16
   max_temp: 22
   target_temp: 19
-  cold_tolerance: 0.5
-  hot_tolerance: 1.0
+  cold_tolerance: 1.0
+  hot_tolerance: 0.5
   precision: 0.1
   initial_hvac_mode: "off"
 
@@ -53,8 +53,8 @@
   min_temp: 16
   max_temp: 22
   target_temp: 19
-  cold_tolerance: 0.5
-  hot_tolerance: 1.0
+  cold_tolerance: 1.0
+  hot_tolerance: 0.5
   precision: 0.1
   initial_hvac_mode: "off"
 
@@ -86,7 +86,7 @@
   ac_mode: true
   min_temp: 0
   max_temp: 100
-  target_temp: 70
+  target_temp: 45
   cold_tolerance: 5.0
   hot_tolerance: 10.0
   precision: 1.0
