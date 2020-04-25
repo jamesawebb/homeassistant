@@ -7,6 +7,9 @@
   - condition: time
     weekday:
       - fri
+    # platform: - platform: template
+    # entity_id: binary_sensor.workday_sensor
+    # state: off
   action:
     - service: switch.turn_on
       entity_id: switch.sonoff_10007c75e6
