@@ -2,13 +2,15 @@
   alias: Both laundry and laundry sliding door have been left open
   trigger:
   - platform: state
-    entity_id: 
-    - binary_sensor.0x00158d00035c15c6_contact
-    - binary_sensor.laundry_sliding_door_contact
+    entity_id: binary_sensor.0x00158d00035c15c6_contact
     to:
       "on"
     for:
       seconds: 60
+  condition:
+    condition: state
+    entity_id: binary_sensor.laundry_sliding_door_contact
+    state: "on"
   action:
     - service: hangouts.send_message
       data_template:
