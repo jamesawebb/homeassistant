@@ -47,7 +47,7 @@
 
 - platform: generic_thermostat
   name: Lager
-  heater: switch.lager_warmer_relay
+  heater: switch.beer_belt_warmer_relay
   target_sensor: sensor.lager_temperature
   ac_mode: false
   min_temp: 16
