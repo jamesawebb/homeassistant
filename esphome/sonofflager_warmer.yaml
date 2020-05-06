@@ -1,4 +1,0 @@
-substitutions:
-  id: lager_warmer
-  friendly_name: Lager Warmer
-<<: !include templates/sonoff.yaml
