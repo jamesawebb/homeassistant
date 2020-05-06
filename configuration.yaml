@@ -63,6 +63,7 @@ binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
 climate: !include climate.yaml
 light: !include light.yaml
+apcupsd:
 
 # # https://www.home-assistant.io/integrations/android_ip_webcam/
 # # ...turns any Android phone or tablet into a network camera with multiple viewing options
@@ -117,7 +118,7 @@ weather:
 # Integrate MQTT into homeassistant
 mqtt:
   #broker: core-mosquitto
-  broker: famidamily.duckdns.org  # Remove if you want to use builtin-in MQTT broker
+  broker: fammidaily.duckdns.org  # Remove if you want to use builtin-in MQTT broker
   discovery: true
   birth_message:
     topic: 'hass/status'
@@ -149,7 +150,8 @@ google:
 # Cf. https://www.home-assistant.io/integrations/pi_hole
 # Nb. this add-on is deprecated.
 pi_hole:
-  host: localhost:4865
+  host: sniper.lan:4865
+  api_key: ''
 
 glances:
 
@@ -210,8 +212,8 @@ timer:
 webhook:
 
 shell_command:
-  motion_on: 'curl http://famidamily.duckdns.org:7999/1/detection/start'
-  motion_off: 'curl http://famidamily.duckdns.org:7999/1/detection/pause'
+  motion_on: 'curl http://ha.webb.kiwi.nz:7999/1/detection/start'
+  motion_off: 'curl http://ha.webb.kiwi.nz:7999/1/detection/pause'
 
 zigbee2mqtt_networkmap:
   #topic: zigbee2mqtt
