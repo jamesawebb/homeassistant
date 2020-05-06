@@ -48,3 +48,5 @@ switch.kirwin_aircon_relay:
   icon: mdi:air-conditioner
 switch.chianti_aircon_relay:
   icon: mdi:air-conditioner
+binary_sensor.beer_belt_warmer_button:
+  device_class: heat
