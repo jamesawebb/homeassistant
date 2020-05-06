@@ -1,7 +1,9 @@
+# Cf. https://esphome.io/devices/sonoff.html
 esphome:
   name: sonoff${id}
   platform: ESP8266
-  board: esp01_1m
+  #board: esp01_1m
+  board: esp8285
 
 wifi:
   ssid: !secret network
@@ -9,7 +11,7 @@ wifi:
   # # # Uncomment below to override IP address
   # # # Cf. https://esphome.io/components/wifi.html#manual-ips
   # manual_ip:
-  #   static_ip: 192.168.86.204
+  #   static_ip: 192.168.86.210
   #   gateway: 192.168.86.1
   #   subnet: 255.255.255.0
   # power_save_mode: none  # light high
