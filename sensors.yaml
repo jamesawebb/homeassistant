@@ -187,8 +187,8 @@
       value_template: "{{ states('sensor.mold_indicator') }}"
     bom_current_text:
       value_template: >
-          {% set val = states('sensor.bom_terrey_hills_summary_0').split('.')[0] %} 
-          {{ val | title }}
+        {% set val = states('sensor.bom_terrey_hills_summary_0').split('.')[0] %} 
+        {{ val | title }}
     bom_forecast_0:
       entity_id:
         - sensor.bom_today_max
@@ -304,32 +304,32 @@
         {% endif %}
     bom_uv_alert:
       value_template: >
-          {%- if states('sensor.bom_terrey_hills_uv_alert_0') != 'n/a' -%} 
-          UV Today: {{ states('sensor.bom_terrey_hills_uv_alert_0') }}
-          {%- else -%}
-          UV Tomorrow: {{ states('sensor.bom_terrey_hills_uv_alert_1') }}
-          {%- endif -%}
+        {%- if states('sensor.bom_terrey_hills_uv_alert_0') != 'n/a' -%} 
+        UV Today: {{ states('sensor.bom_terrey_hills_uv_alert_0') }}
+        {%- else -%}
+        UV Tomorrow: {{ states('sensor.bom_terrey_hills_uv_alert_1') }}
+        {%- endif -%}
 
     bom_uv_alert_summary:
       value_template: >
-          {% set val = states('sensor.bom_uv_alert').split('[')[1].split(']')[0]%}
-          {{ val | title }}
+        {% set val = states('sensor.bom_uv_alert').split('[')[1].split(']')[0]%}
+        {{ val | title }}
 
     bom_fire_danger:
       value_template: >
-          {%- if states('sensor.bom_terrey_hills_fire_danger_0') != 'n/a' -%} 
-          Fire Danger Today: {{ states('sensor.bom_terrey_hills_fire_danger_0') }}
-          {%- else -%}
-          Fire Danger Tomorrow: {{ states('sensor.bom_terrey_hills_fire_danger_1') }}
-          {%- endif -%}
+        {%- if states('sensor.bom_terrey_hills_fire_danger_0') != 'n/a' -%} 
+        Fire Danger Today: {{ states('sensor.bom_terrey_hills_fire_danger_0') }}
+        {%- else -%}
+        Fire Danger Tomorrow: {{ states('sensor.bom_terrey_hills_fire_danger_1') }}
+        {%- endif -%}
 
     bom_fire_danger_summary:
       value_template: >
-          {%- if states('sensor.bom_terrey_hills_fire_danger_0') != 'n/a' -%} 
-          {{ states('sensor.bom_terrey_hills_fire_danger_0') }}
-          {%- else -%}
-          {{ states('sensor.bom_terrey_hills_fire_danger_1') }}
-          {%- endif -%}
+        {%- if states('sensor.bom_terrey_hills_fire_danger_0') != 'n/a' -%} 
+        {{ states('sensor.bom_terrey_hills_fire_danger_0') }}
+        {%- else -%}
+        {{ states('sensor.bom_terrey_hills_fire_danger_1') }}
+        {%- endif -%}
 
 - platform: statistics
   name: today_temp_bom
@@ -337,3 +337,27 @@
   entity_id: sensor.bom_terrey_hills_air_temp_c
   max_age:
     hours: 24
+
+- platform: apcupsd
+  resources:
+    - apc
+    - date
+    - hostname
+    - version
+    - upsname
+    - cable
+    - driver
+    - upsmode
+    - starttime
+    - model
+    - status
+    - linev
+    - loadpct
+    - bcharge
+    - timeleft
+    - mbattchg
+    - mintimel
+    - maxtime
+    - maxlinev
+    - minlinev
+    - outputv
