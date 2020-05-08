@@ -13,7 +13,6 @@
   cold_tolerance: 2.0
   hot_tolerance: 1.0
   precision: 0.1
-  initial_hvac_mode: "off"
 
 - platform: generic_thermostat
   name: Chianti Aircon
@@ -26,7 +25,6 @@
   cold_tolerance: 2.0
   hot_tolerance: 1.0
   precision: 0.1
-  initial_hvac_mode: "off"
 
 # ================
 # Beer warmers
@@ -43,7 +41,6 @@
   cold_tolerance: 1.0
   hot_tolerance: 0.5
   precision: 0.1
-  initial_hvac_mode: "off"
 
 - platform: generic_thermostat
   name: Lager
@@ -56,7 +53,6 @@
   cold_tolerance: 1.0
   hot_tolerance: 0.5
   precision: 0.1
-  initial_hvac_mode: "off"
 
 # ================
 # Heaters
@@ -73,7 +69,6 @@
   cold_tolerance: 2.0
   hot_tolerance: 2.0
   precision: 0.1
-  initial_hvac_mode: "off"
 
 # ================
 # Dehumidifiers
@@ -90,4 +85,3 @@
   cold_tolerance: 5.0
   hot_tolerance: 10.0
   precision: 1.0
-  initial_hvac_mode: "off"
