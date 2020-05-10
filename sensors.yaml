@@ -361,3 +361,19 @@
     # - maxlinev
     - minlinev
     - outputv
+
+# Cf. https://www.waternsw.com.au/water-quality/catchment/sub-catchment/warragamba
+- platform: waternsw
+  name: Warragamba Dam
+  site_id: 212243
+  from_variable: 130.00
+  to_variable: 136.00
+  unit_of_measure: ML
+
+# Cf. https://www.waternsw.com.au/water-quality/catchment/sub-catchment/nepean
+- platform: waternsw
+  name: Nepean Dam
+  site_id: 212205
+  from_variable: 132.00
+  to_variable: 132.00
+  unit_of_measure: ML
