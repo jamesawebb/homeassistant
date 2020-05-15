@@ -377,3 +377,5 @@
   from_variable: 132.00
   to_variable: 132.00
   unit_of_measure: ML
+
+- platform: season
