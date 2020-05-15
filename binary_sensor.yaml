@@ -32,3 +32,36 @@
   country: AU
 
 - platform: apcupsd
+
+# Cf. https://www.home-assistant.io/integrations/trend#examples
+# Indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:
+- platform: trend
+  sensors:
+    outside_temp_falling:
+      entity_id: sensor.outside_patio_temperature
+      sample_duration: 7200
+      max_samples: 120
+      min_gradient: -0.0008
+      device_class: cold
+
+    outside_temp_rising:
+      entity_id: sensor.outside_patio_temperature
+      sample_duration: 7200
+      max_samples: 120
+      min_gradient: 0.0008
+      device_class: heat
+
+    lounge_temp_falling:
+      entity_id: sensor.loungepatio_temperature
+      sample_duration: 7200
+      max_samples: 120
+      min_gradient: -0.0008
+      device_class: cold
+
+    lounge_temp_rising:
+      entity_id: sensor.lounge_patio_temperature
+      sample_duration: 7200
+      max_samples: 120
+      min_gradient: 0.0008
+      device_class: heat
+
