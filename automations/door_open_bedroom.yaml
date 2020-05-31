@@ -1,0 +1,19 @@
+- id: 'door_open_bedroom'
+  alias: Turn off Bedroom Climate Control
+  description: If the door is left open, switch off any climate controls that are on.
+  trigger:
+  - platform: device
+    domain: binary_sensor
+    entity_id: binary_sensor.0x00158d00045f70d8_contact
+    device_id: d21958296eb44dd2821473699a3b72ab
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 30
+    type: opened
+  condition: []
+  action:
+  - service: climate.turn_off
+    entity_id: climate.dehumidifier
+  - service: climate.turn_off
+    entity_id: climate.bedroom_heating_panel
