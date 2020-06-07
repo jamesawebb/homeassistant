@@ -204,6 +204,10 @@ timer:
     name: Frontdoor unlock remaining
     duration: 180
 
+zoneminder:
+  host: localhost:8443
+  ssl: true
+
 # ================
 # Extensions
 # ================
