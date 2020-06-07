@@ -49,7 +49,8 @@ switch:
 
 # Scan for BLE devices
 esp32_ble_tracker:
-  scan_interval: 60s
+  # This option has been removed in 1.14 (Reason: it never had an effect).
+  #scan_interval: 60s
 
 binary_sensor:
   - platform: gpio
