@@ -34,11 +34,11 @@
 # 8443/tcp open     ssl/https-alt?
 # |_ssl-date: 1970-01-01T07:46:28+00:00; -49y317d01h46m15s from scanner time.
 
-  - platform: samsungtv
-    name: Samsung TV
-    host: 192.168.86.72
-    port: 8001
-    mac: 54:88:0e:23:6d:b3
+  # - platform: samsungtv
+  #   name: Samsung TV
+  #   host: 192.168.86.72
+  #   port: 8001
+  #   mac: 54:88:0e:23:6d:b3
 
 # # New platform from the community store
 #   - platform: samsungtv_custom
