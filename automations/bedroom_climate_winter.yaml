@@ -1,0 +1,18 @@
+- id: 'activate_climate_bedroom_winter'
+  alias: Turn on Bedroom Climate Control during Winter
+  description: Turn the heating panel climate control on during Winter.
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: "-01:00:00"
+  - platform: time
+    at: "05:45:00"
+  condition:
+  - condition: state
+    entity_id: sensor.season
+    state: 'winter'
+  action:
+  - service: climate.turn_on
+    entity_id: climate.dehumidifier
+  - service: climate.turn_on
+    entity_id: climate.bedroom_heating_panel
