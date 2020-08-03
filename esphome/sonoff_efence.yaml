@@ -1,0 +1,4 @@
+substitutions:
+  id: efence
+  friendly_name: Electric Fence
+<<: !include templates/sonoff.yaml
