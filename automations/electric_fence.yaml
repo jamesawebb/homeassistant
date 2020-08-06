@@ -1,0 +1,20 @@
+- id: electric_fence_off
+  alias: Turn off the electric fence at night to not bug Kirwin
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "02:00:00"
+  action:
+  - data:
+      entity_id: switch.electric_fence_relay
+    service: switch.turn_off
+
+- id: electric_fence_on
+  alias: Turn on the electric fence at dawn
+  trigger:
+    platform: sun
+    event: sunrise
+  action:
+  - data:
+      entity_id: switch.electric_fence_relay
+    service: switch.turn_on
