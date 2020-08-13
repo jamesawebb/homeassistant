@@ -50,3 +50,17 @@ switch.chianti_aircon_relay:
   icon: mdi:air-conditioner
 binary_sensor.beer_belt_warmer_button:
   device_class: heat
+switch.daikin_ac_zone1:
+  friendly_name: Daikin AC Downstairs
+switch.daikin_ac_zone2:
+  friendly_name: Daikin AC Upstairs
+switch.daikin_ac_zone3:
+  friendly_name: Daikin AC Master Bedroom
+climate.daikin_master_bedroom:
+  friendly_name: Bedroom
+climate.daikin_downstairs:
+  friendly_name: Downstairs
+climate.daikin_upstairs:
+  friendly_name: Upstairs
+climate.daikin_ac:
+  friendly_name: Daikin AC Main
