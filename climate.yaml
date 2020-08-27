@@ -31,36 +31,27 @@
   heater: switch.daikin_ac_zone1
   target_sensor: sensor.lounge_temperature
   ac_mode: false
-  min_temp: 20
-  max_temp: 24
-  target_temp: 22
-  cold_tolerance: 2.0
-  hot_tolerance: 2.0
-  precision: 0.1
+  min_temp: 15
+  max_temp: 25
+  target_temp: 18
 
 - platform: generic_thermostat
   name: Daikin Upstairs
   heater: switch.daikin_ac_zone2
   target_sensor: sensor.rumpus_temperature
   ac_mode: false
-  min_temp: 20
-  max_temp: 24
-  target_temp: 22
-  cold_tolerance: 2.0
-  hot_tolerance: 2.0
-  precision: 0.1
+  min_temp: 15
+  max_temp: 25
+  target_temp: 18
 
 - platform: generic_thermostat
   name: Daikin Master Bedroom
   heater: switch.daikin_ac_zone3
   target_sensor: sensor.bedroom_temperature
   ac_mode: false
-  min_temp: 20
-  max_temp: 24
-  target_temp: 22
-  cold_tolerance: 2.0
-  hot_tolerance: 2.0
-  precision: 0.1
+  min_temp: 15
+  max_temp: 25
+  target_temp: 18
 
 # ================
 # Beer warmers
@@ -76,7 +67,6 @@
   target_temp: 19
   cold_tolerance: 1.0
   hot_tolerance: 0.5
-  precision: 0.1
 
 - platform: generic_thermostat
   name: Lager
@@ -88,7 +78,6 @@
   target_temp: 22
   cold_tolerance: 1.0
   hot_tolerance: 0.5
-  precision: 0.1
 
 # ================
 # Heaters
