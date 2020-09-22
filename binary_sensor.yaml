@@ -31,7 +31,7 @@
 - platform: workday
   country: AU
 
-- platform: apcupsd
+# - platform: apcupsd
 
 # Cf. https://www.home-assistant.io/integrations/trend#examples
 # Indicate whether the temperature is rising or falling at a rate of at least 3 degrees an hour, and collects samples over a two hour period:
