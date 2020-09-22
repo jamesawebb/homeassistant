@@ -122,7 +122,7 @@
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
 
-- platform: yr     # Weather prediction
+# - platform: yr     # Weather prediction
 
 # Cf. https://www.home-assistant.io/components/bom/
 - platform: bom
@@ -338,29 +338,29 @@
   max_age:
     hours: 24
 
-- platform: apcupsd
-  resources:
-    - apc
-    - date
-    - hostname
-    - version
-    - upsname
-    - cable
-    - driver
-    - upsmode
-    - starttime
-    - model
-    - status
-    - linev
-    - loadpct
-    - bcharge
-    - timeleft
-    - mbattchg
-    - mintimel
-    - maxtime
-    # - maxlinev
-    # - minlinev
-    - outputv
+# - platform: apcupsd
+#   resources:
+#     - apc
+#     - date
+#     - hostname
+#     - version
+#     - upsname
+#     - cable
+#     - driver
+#     - upsmode
+#     - starttime
+#     - model
+#     - status
+#     - linev
+#     - loadpct
+#     - bcharge
+#     - timeleft
+#     - mbattchg
+#     - mintimel
+#     - maxtime
+#     # - maxlinev
+#     # - minlinev
+#     - outputv
 
 # Cf. https://www.waternsw.com.au/water-quality/catchment/sub-catchment/warragamba
 - platform: waternsw
