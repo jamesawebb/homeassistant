@@ -37,6 +37,7 @@ recorder: !include recorder.yaml
 #alert: !include alerts.yaml
 #script: !include scripts.yaml
 
+
 # ================
 # Geolocation
 # ================
@@ -54,6 +55,7 @@ geo_location:
       - 'Watch and Act'
       - 'Advice'
 
+
 # ================
 # Device
 # ================
@@ -64,7 +66,9 @@ binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
 climate: !include climate.yaml
 light: !include light.yaml
-apcupsd:
+# apcupsd:
+#   host: sniper.lan
+#   port: 3493
 
 # # https://www.home-assistant.io/integrations/android_ip_webcam/
 # # ...turns any Android phone or tablet into a network camera with multiple viewing options
@@ -75,13 +79,13 @@ apcupsd:
 #     # username: james
 #     # password: !secret basic
 
-switch:
-  - platform: broadlink
-    # If the IP address below changes, update the host: field in automations/hk.yaml.
-    host: 192.168.86.75
-    mac: "C8:F7:42:16:BC:E8"
-    type: rm_mini
-    switches: !include broadlink.yaml
+# switch:
+#   - platform: broadlink
+#     # If the IP address below changes, update the host: field in automations/hk.yaml.
+#     host: 192.168.86.75
+#     mac: "C8:F7:42:16:BC:E8"
+#     type: rm_mini
+#     switches: !include broadlink.yaml
 
 # # Replaced by sonoff
 # tuya:
@@ -98,6 +102,7 @@ sonoff:
   api_region: us
   #entity_prefix: True
   debug: False
+
 
 # ================
 # Services
@@ -119,7 +124,7 @@ weather:
 # Integrate MQTT into homeassistant
 mqtt:
   #broker: core-mosquitto
-  broker: fammidaily.duckdns.org  # Remove if you want to use builtin-in MQTT broker
+  broker: sniper.lan  # Remove if you want to use builtin-in MQTT broker
   discovery: true
   birth_message:
     topic: 'hass/status'
@@ -128,18 +133,19 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
   # discovery_prefix: zigbee2mqtt
-  username: !secret mqtt_user
-  password: !secret master3
+  # username: !secret mqtt_user
+  # password: !secret master3
 
 tts:
   - platform: google_translate
 
 influxdb:
-  host: a0d7b954-influxdb
+  host: sniper.lan
   port: 8086
-  database: homeassistant
+  database: ha
   username: !secret influxdb_user
-  password: !secret basic
+  #password: !secret basic
+  password: !secret influxdb_pass
   max_retries: 3
   default_measurement: state
 
@@ -148,13 +154,14 @@ google:
   client_secret: !secret google_hassio_secret
   track_new_calendar: true
 
-# Cf. https://www.home-assistant.io/integrations/pi_hole
-# Nb. this add-on is deprecated.
-pi_hole:
-  host: sniper.lan:4865
-  api_key: ''
+# # Cf. https://www.home-assistant.io/integrations/pi_hole
+# pi_hole:
+#   name: pihole
+#   host: sniper.lan:8880
+#   location: admin
+#   api_key: 50c4b5ee50bf5b2eddcc5589b5a71c5ca7d815b15401e130a0800a2a2f1c44ba
 
-glances:
+# glances:
 
 spotify:
   client_id: !secret spotify_client_id
@@ -168,6 +175,7 @@ airvisual:
   #city: hornsby
   #state: new-south-wales
   #country: australia
+
 
 # ================
 # Inputs
@@ -205,9 +213,10 @@ timer:
     name: Frontdoor unlock remaining
     duration: 180
 
-zoneminder:
-  host: localhost:8443
-  ssl: true
+# zoneminder:
+#   host: localhost:8443
+#   ssl: true
+
 
 # ================
 # Extensions
@@ -220,5 +229,5 @@ shell_command:
   motion_on: 'curl http://ha.webb.kiwi.nz:7999/1/detection/start'
   motion_off: 'curl http://ha.webb.kiwi.nz:7999/1/detection/pause'
 
-zigbee2mqtt_networkmap:
-  #topic: zigbee2mqtt
+# zigbee2mqtt_networkmap:
+#   #topic: zigbee2mqtt
