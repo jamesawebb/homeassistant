@@ -66,30 +66,30 @@
   # again, if you change base_topic of Zigbee2mqtt, change json_attributes_topic accordingly
   json_attributes_topic: zigbee2mqtt/bridge/networkmap/raw
 
-# Frontdoor sensor
+# Front door sensor
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/frontdoor"
+  state_topic: "zigbee2mqtt/front_door"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
 
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/frontdoor"
+  state_topic: "zigbee2mqtt/front_door"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
 
-# Laundry/Kitching sliding door sensor
+# Pantry sliding door sensor
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/laundry_sliding_door"
+  state_topic: "zigbee2mqtt/pantry_door"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
 
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/laundry_sliding_door"
+  state_topic: "zigbee2mqtt/pantry_door"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
@@ -108,16 +108,16 @@
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
 
-# Patio sliding door
+# Grarage entry
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/garage_door"
+  state_topic: "zigbee2mqtt/garage_entry"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "%"
   device_class: "battery"
   value_template: "{{ value_json.battery }}"
 
 - platform: "mqtt"
-  state_topic: "zigbee2mqtt/garage_door"
+  state_topic: "zigbee2mqtt/garage_entry"
   availability_topic: "zigbee2mqtt/bridge/state"
   unit_of_measurement: "-"
   value_template: "{{ value_json.linkquality }}"
