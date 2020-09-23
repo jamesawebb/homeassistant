@@ -1,7 +1,0 @@
-substitutions:
-  id: beer_belt_warmer
-  friendly_name: Beer Belt Warmer
-debug:
-logger:
-  level: debug
-<<: !include templates/sonoff.yaml

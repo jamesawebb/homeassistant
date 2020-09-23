@@ -1,4 +1,0 @@
-substitutions:
-  id: chianti_aircon
-  friendly_name: Chianti Aircon
-<<: !include templates/sonoff.yaml

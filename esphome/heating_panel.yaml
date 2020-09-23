@@ -1,4 +1,0 @@
-substitutions:
-  id: heating_panel
-  friendly_name: Bedroom heating panel
-<<: !include templates/sonoff.yaml

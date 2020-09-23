@@ -1,4 +1,0 @@
-substitutions:
-  id: frontdoor
-  friendly_name: Front Door
-<<: !include templates/esp32cam.yaml

@@ -1,4 +1,0 @@
-substitutions:
-  id: dehumidifier
-  friendly_name: Dehumidifier
-<<: !include templates/sonoff.yaml

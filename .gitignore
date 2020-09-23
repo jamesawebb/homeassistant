@@ -8,8 +8,6 @@
 !*.md
 
 !automations/
-!esphome/
-!esphome/templates/
 !www/icons/
 !themes/
 

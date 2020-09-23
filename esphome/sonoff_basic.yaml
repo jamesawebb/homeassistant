@@ -1,4 +1,0 @@
-substitutions:
-  id: basic
-  friendly_name: Basic
-<<: !include templates/sonoff.yaml
