@@ -1,5 +1,5 @@
 vscode:
-  title: VS Code
+  title: Code-server
   url: http://sniper.lan:8443/
   icon: mdi:code-braces
   require_admin: true
@@ -17,7 +17,7 @@ grafana:
   require_admin: true
 
 z2massistant:
-  title: Zigbee to MQTT
+  title: Zigbee→MQTT
   url: http://sniper.lan:8082/
   icon: mdi:hubspot
   require_admin: true
