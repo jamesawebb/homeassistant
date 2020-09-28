@@ -137,6 +137,10 @@ airvisual:
   #state: new-south-wales
   #country: australia
 
+# zoneminder:
+#   host: localhost:8443
+#   ssl: true
+
 
 # ================
 # Inputs
@@ -174,10 +178,6 @@ timer:
     name: Frontdoor unlock remaining
     duration: 180
 
-# zoneminder:
-#   host: localhost:8443
-#   ssl: true
-
 
 # ================
 # Extensions
@@ -192,3 +192,4 @@ shell_command:
 
 # zigbee2mqtt_networkmap:
 #   #topic: zigbee2mqtt
+panel_iframe: !include panel_iframe.yaml
