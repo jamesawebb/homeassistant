@@ -1,0 +1,5 @@
+vscode:
+  title: VS Code
+  url: http://sniper.lan:8443/
+  icon: mdi:code-braces
+  require_admin: true
