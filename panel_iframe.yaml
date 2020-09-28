@@ -3,3 +3,28 @@ vscode:
   url: http://sniper.lan:8443/
   icon: mdi:code-braces
   require_admin: true
+
+portainer:
+  title: Portainer
+  url: http://sniper.lan:9000/
+  icon: mdi:docker
+  require_admin: true
+
+grafana:
+  title: Grafana
+  url: http://sniper.lan:3000/
+  icon: mdi:monitor-dashboard
+  require_admin: true
+
+z2massistant:
+  title: Zigbee to MQTT
+  url: http://sniper.lan:8082/
+  icon: mdi:hubspot
+  require_admin: true
+
+# 'X-Frame-Options' is to 'deny'.
+# adminer:
+#   title: Adminer
+#   url: http://sniper.lan:8080/
+#   icon: mdi:database
+#   require_admin: true
