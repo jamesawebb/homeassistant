@@ -1,24 +1,24 @@
 vscode:
   title: Code-server
-  url: http://sniper.lan:8443/
+  url: https://webb.kiwi.nz/local/code
   icon: mdi:code-braces
   require_admin: true
 
 portainer:
   title: Portainer
-  url: http://sniper.lan:9000/
+  url: https://webb.kiwi.nz/local/portainer
   icon: mdi:docker
   require_admin: true
 
 grafana:
   title: Grafana
-  url: http://sniper.lan:3000/
+  url: https://webb.kiwi.nz/local/grafana
   icon: mdi:monitor-dashboard
   require_admin: true
 
 z2massistant:
   title: Zigbee→MQTT
-  url: http://sniper.lan:8082/
+  url: https://webb.kiwi.nz/local/z2ma
   icon: mdi:hubspot
   require_admin: true
 
