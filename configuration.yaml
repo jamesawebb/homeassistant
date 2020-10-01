@@ -112,8 +112,7 @@ influxdb:
   port: 8086
   database: ha
   username: !secret influxdb_user
-  #password: !secret basic
-  password: !secret influxdb_pass
+  password: !secret master3
   max_retries: 3
   default_measurement: state
 
@@ -187,9 +186,10 @@ timer:
 webhook:
 
 shell_command:
-  motion_on: 'curl http://ha.webb.kiwi.nz:7999/1/detection/start'
-  motion_off: 'curl http://ha.webb.kiwi.nz:7999/1/detection/pause'
+  motion_on: 'curl http://sniper.lan:7999/1/detection/start'
+  motion_off: 'curl http://sniper.lan:7999/1/detection/pause'
 
 # zigbee2mqtt_networkmap:
 #   #topic: zigbee2mqtt
+
 panel_iframe: !include panel_iframe.yaml
