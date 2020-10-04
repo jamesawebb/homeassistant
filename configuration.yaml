@@ -13,6 +13,25 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
+logger:
+  default: info
+
+history:
+  exclude:
+    entities:
+    - hangouts.conversations
+    domains:
+    - input_boolean
+      zone
+      device_tracker
+
+notify:
+- platform: html5
+  name: HTML5 Push
+  vapid_pub_key: !secret vapid_pub_key
+  vapid_prv_key: !secret vapid_prv_key
+  vapid_email: jaw@google.com
+
 hacs:
   token: !secret my_github_hacs_token
   sidepanel_title: Community Store
@@ -22,11 +41,6 @@ hacs:
 automation: !include_dir_merge_list automations
 group: !include groups.yaml
 logbook: !include logbook.yaml
-# https://www.home-assistant.io/integrations/logger/#log-levels
-logger:
-  default: info
-history: !include history.yaml
-notify: !include notifications.yaml
 recorder: !include recorder.yaml
 #alert: !include alerts.yaml
 #script: !include scripts.yaml
@@ -104,6 +118,15 @@ weather:
     station: IDN60901.94759
     name: Terrey Hills
 
+# Cf. https://www.home-assistant.io/integrations/airvisual/
+airvisual:
+  api_key: !secret airvisual-key
+  #monitored_conditions:
+  #  - us
+  #city: hornsby
+  #state: new-south-wales
+  #country: australia
+
 tts:
   - platform: google_translate
 
@@ -126,15 +149,6 @@ google:
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_secret
-
-# Cf. https://www.home-assistant.io/integrations/airvisual/
-airvisual:
-  api_key: !secret airvisual-key
-  #monitored_conditions:
-  #  - us
-  #city: hornsby
-  #state: new-south-wales
-  #country: australia
 
 # zoneminder:
 #   host: localhost:8443
