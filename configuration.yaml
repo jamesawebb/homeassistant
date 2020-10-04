@@ -4,6 +4,9 @@
 
 homeassistant:
   customize: !include customize.yaml
+  media_dirs:
+    motion: /media/Movies
+    music: /media/Music
 
 default_config:
 
@@ -67,13 +70,10 @@ light: !include light.yaml
 #     # username: james
 #     # password: !secret basic
 
-# switch:
-#   - platform: broadlink
-#     # If the IP address below changes, update the host: field in automations/hk.yaml.
-#     host: 192.168.86.75
-#     mac: "C8:F7:42:16:BC:E8"
-#     type: rm_mini
-#     switches: !include broadlink.yaml
+switch:
+  - platform: broadlink
+    mac: "C8:F7:42:16:BC:E8"
+    # switches: !include broadlink.yaml
 
 # # Replaced by sonoff
 # tuya:
@@ -158,6 +158,22 @@ input_boolean:
     name: House alarmed
     initial: off
     icon: mdi:shield-home
+  smsl_power:
+    name: SMSL AD18 power
+    initial: off
+    icon: mdi:power
+  smsl_mute:
+    name: SMSL AD18 smsl_mute
+    initial: off
+    icon: mdi:volume-mute
+
+input_number:
+  smsl_volume:
+    name: SMSL volume
+    initial: 0
+    min: 0
+    max: 30
+    step: 2
 
 input_select:
   frontdoor_mode:
@@ -168,6 +184,17 @@ input_select:
       - Passive
     initial: Locked
     icon: mdi:lock-outline
+  smsl_source:
+    name: Input source for SMSL AD18
+    options:
+      - USB
+      - Optical 1
+      - Optical 2
+      - Coaxial
+      - Bluetooth
+      - Auxillary
+    icon: mdi:audio-video
+    initial: USB
 
 timer:
   zigbee_permit_join:
