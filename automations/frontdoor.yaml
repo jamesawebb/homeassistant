@@ -34,7 +34,7 @@
       entity_id: timer.arrived_home
   - platform: state
     entity_id: 
-    - binary_sensor.frontdoor_contact
+    - binary_sensor.front_door_contact
     to:
       "on"
     # for:
@@ -46,6 +46,9 @@
   - service: switch.turn_off
     data:
       entity_id: switch.doorstrike_relay
+  - service: timer.cancel
+    data:
+      entity_id: timer.arrived_home
 
 - id: frontdoor_opened
   alias: The front door was opened
