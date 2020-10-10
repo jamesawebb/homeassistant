@@ -8,58 +8,73 @@
   - entity_id: media_player.harman_kardon_avr
     platform: state
     to: "paused"
-  condition: []
+  condition:
+    condition: state
+    entity_id: input_boolean.smsl_power
+    state: "off"
   action:
-  # Switch Harman Kardon to "Tape"
-  - data:
-      host: 192.168.86.75
-      packet: "JgBQAAABKJURFBITERMTExETEhQRExQ2EhMSExITERQSNxM3EjgSExITFBESOBE5ERMTExE5ETgSOBI4ERQSExE5ETkRExITEgAF0QABKEoTAA0FAAAAAAAAAAA=="
-    service: broadlink.send
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.smsl_power
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.smsl_source
+      option: Auxillary
 
 - id: hd_tv_on
   alias: Samsung TV switched on
   trigger:
-  - entity_id: media_player.samsung_ua65hu9000
+    entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "on"
-  condition: []
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: 'media_player.harman_kardon_avr'
+      state: 'off'
+    - condition: state
+      entity_id: 'media_player.harman_kardon_avr'
+      state: 'paused'
   action:
-  # Switch Harman Kardon to "VID1"
-  - service: broadlink.send
+  - service: input_boolean.turn_on
     data:
-      host: 192.168.86.75
-      packet: "JgBYAAABJ5UTExETEhQRExITEhMSExE5ERQSExETExMROBI4EjgRFBITETkRExM3EhQRExI4EjgSNxMTETkRExI4EjgSExEUEgAF0QABJ0sSAAxsAAEoSxIADQU="
+      entity_id: input_boolean.smsl_power
+  - service: input_select.select_option
+    data:
+      entity_id: input_select.smsl_source
+      option: Optical 2
 
 - id: hk_tv_off_casting_off
-  alias: Samsung TV switched off, no casting
+  alias: Samsung TV switched off and no casting for 10s
   trigger:
-  - entity_id: media_player.samsung_ua65hu9000
+    entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "off"
   condition:
-  # Only switch HK off if we're not casting
-  - condition: state
+    condition: state
     entity_id: 'media_player.harman_kardon_avr'
     state: 'off'
     for:
       seconds: 10
   action:
-  - service: switch.turn_off
-    entity_id: switch.harman_kardon_pwr
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.smsl_power
 
 - id: hk_casting_off_tv_off
-  alias: Harman Kardon AVR casting off, TV off
+  alias: Harman Kardon AVR casting switched off and TV off
   trigger:
-  - entity_id: media_player.harman_kardon_avr
+    entity_id: media_player.harman_kardon_avr
     platform: state
     to: 'off'
   condition:
-  # Only switch HK off if the TV is off too
-  - condition: state
+    condition: state
     entity_id: 'media_player.samsung_ua65hu9000'
     state: 'off'
     for:
       seconds: 10
   action:
-  - service: switch.turn_off
-    entity_id: switch.harman_kardon_pwr
+    service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.smsl_power

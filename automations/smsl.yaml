@@ -1,0 +1,97 @@
+- id: 'smsl_power_state'
+  description: Cycle power on SMSL AD18
+  trigger:
+    platform: state
+    entity_id: input_boolean.smsl_power
+  condition: 
+  action:
+  - service: system_log.write
+    data:
+      message: "Powering SMSL {{ states('input_boolean.smsl_power') }}"
+      level: info
+      logger: smsl_source
+  - service: remote.send_command
+    data:
+      entity_id: remote.irblaster_remote
+      device: smsl
+      command: Power
+  - delay: 5  # It can take ~5s to start
+  mode: restart  # Cf. https://www.home-assistant.io/integrations/automation/#automation-modes
+
+- id: 'smsl_mute_state'
+  description: Cycle muste on SMSL AD18 if powered on
+  trigger:
+    platform: state
+    entity_id: input_boolean.smsl_mute
+  condition:
+    condition: state
+    entity_id: 'input_boolean.smsl_power'
+    state: 'on'
+  action:
+  - service: system_log.write
+    data:
+      message: "{% if states('input_boolean.smsl_mute') %}Unmuting{% else %}Muting{% endif %} SMSL"
+      level: info
+      logger: smsl_source
+  - service: remote.send_command
+    data:
+      entity_id: remote.irblaster_remote
+      device: smsl
+      command: Mute
+  mode: single
+
+- id: 'smsl_volume_change'
+  description: Change the SMSL volume to match the slider
+  trigger:
+    platform: state
+    entity_id: input_number.smsl_volume
+  condition:
+    condition: state
+    entity_id: 'input_boolean.smsl_power'
+    state: 'on'
+  action:
+  - repeat:
+      count: "{{ (trigger.to_state.state|int - trigger.from_state.state|int) | abs }}"
+      sequence:
+      - service: system_log.write
+        data:
+          message: "Changing volume by {{ trigger.to_state.state|int - trigger.from_state.state|int }}dB "
+          level: info
+          logger: smsl_volume
+      - service: remote.send_command
+        data:
+          entity_id: remote.irblaster_remote
+          device: smsl
+          command: "Volume {% if trigger.to_state.state|int > trigger.from_state.state|int %}up{% else %}down{% endif %}"
+      - delay: 0.25
+  mode: queued
+
+- id: 'smsl_source_change'
+  description: Change the SMSL source to match options
+  trigger:
+    platform: state
+    entity_id: input_select.smsl_source
+  condition:
+    condition: state
+    entity_id: 'input_boolean.smsl_power'
+    state: 'on'
+  action:
+    repeat:
+      while:
+        - condition: template
+          value_template: "{{ states('input_select.smsl_source') != states('input_select.smsl_source_actual') }}"
+      sequence:
+        - service: system_log.write
+          data:
+            message: "Changing source from {{ states('input_select.smsl_source_actual') }} to {{ states('input_select.smsl_source') }}"
+            level: info
+            logger: smsl_source
+        - service: input_select.select_next
+          entity_id: input_select.smsl_source_actual
+        - service: remote.send_command
+          data:
+            entity_id: remote.irblaster_remote
+            device: smsl
+            command: Source
+        - delay: 0.5
+  mode: restart
