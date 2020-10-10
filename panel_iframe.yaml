@@ -1,3 +1,9 @@
+esphome:
+  title: ESP Home
+  url: https://webb.kiwi.nz/local/esphome/
+  icon: mdi:cpu-32-bit
+  require_admin: true
+
 vscode:
   title: Code-server
   url: https://webb.kiwi.nz/local/code
@@ -14,6 +20,12 @@ grafana:
   title: Grafana
   url: https://webb.kiwi.nz/local/grafana
   icon: mdi:monitor-dashboard
+  require_admin: true
+
+pihole:
+  title: Pihole
+  url: https://webb.kiwi.nz/local/pihole
+  icon: mdi:dns
   require_admin: true
 
 z2massistant:
