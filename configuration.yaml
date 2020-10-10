@@ -43,14 +43,14 @@ group: !include groups.yaml
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 #alert: !include alerts.yaml
-#script: !include scripts.yaml
+script: !include scripts.yaml
 
 
 # ================
 # Geolocation
 # ================
 
-person: !include person.yaml
+# person: !include person.yaml
 zone: !include zones.yaml
 device_tracker: !include device_tracker.yaml
 
@@ -73,7 +73,7 @@ media_player: !include media_player.yaml
 binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
 climate: !include climate.yaml
-light: !include light.yaml
+# light: !include light.yaml
 
 # # https://www.home-assistant.io/integrations/android_ip_webcam/
 # # ...turns any Android phone or tablet into a network camera with multiple viewing options
@@ -186,8 +186,10 @@ input_number:
     name: SMSL volume
     initial: 0
     min: 0
-    max: 30
-    step: 2
+    max: 60
+    step: 1
+    unit_of_measurement: dB
+    icon: mdi:volume-plus
 
 input_select:
   frontdoor_mode:
@@ -199,7 +201,7 @@ input_select:
     initial: Locked
     icon: mdi:lock-outline
   smsl_source:
-    name: Input source for SMSL AD18
+    name: Desired input source for SMSL AD18
     options:
       - USB
       - Optical 1
@@ -208,7 +210,15 @@ input_select:
       - Bluetooth
       - Auxillary
     icon: mdi:audio-video
-    initial: USB
+  smsl_source_actual:
+    name: Actual input source for SMSL AD18
+    options:
+      - USB
+      - Optical 1
+      - Optical 2
+      - Coaxial
+      - Bluetooth
+      - Auxillary
 
 timer:
   zigbee_permit_join:
