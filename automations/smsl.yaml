@@ -15,7 +15,6 @@
       entity_id: remote.irblaster_remote
       device: smsl
       command: Power
-  - delay: 5  # It can take ~5s to start
   mode: restart  # Cf. https://www.home-assistant.io/integrations/automation/#automation-modes
 
 - id: 'smsl_mute_state'

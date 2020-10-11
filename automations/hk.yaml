@@ -16,6 +16,7 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.smsl_power
+  - delay: 6   # SMSL takes ~5s to power on
   - service: input_select.select_option
     data:
       entity_id: input_select.smsl_source
@@ -40,6 +41,7 @@
   - service: input_boolean.turn_on
     data:
       entity_id: input_boolean.smsl_power
+  - delay: 6   # SMSL takes ~5s to power on
   - service: input_select.select_option
     data:
       entity_id: input_select.smsl_source
