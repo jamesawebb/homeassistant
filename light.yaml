@@ -1,0 +1,54 @@
+# Cf. https://www.home-assistant.io/integrations/light.template/
+- platform: template
+  lights:
+    rgb_light_strip:
+      friendly_name: "Lounge Lights"
+      unique_id: "1"
+      # Templates
+      level_template: "{{ state('rgb_light_strip_brightness') }}"
+      value_template: "{{ state('rgb_light_strip_power') }}"
+      # temperature_template: "{{states('input_number.temperature_input') | int}}"
+      # color_template: "({{states('input_number.h_input') | int}}, {{states('input_number.s_input') | int}})"
+      # Actions
+      turn_on:
+        service: remote.send_command
+        data:
+          entity_id: remote.irblaster_remote
+          device: rgb_light_strip
+          command: On
+      turn_off:
+        service: remote.send_command
+        data:
+          entity_id: remote.irblaster_remote
+          device: rgb_light_strip
+          command: Off
+      set_level:
+        repeat:
+          count: "{{ (trigger.to_state.state|int - trigger.from_state.state|int) | abs }}"
+          sequence:
+          - service: system_log.write
+            data:
+              message: "Changing volume by {{ trigger.to_state.state|int - trigger.from_state.state|int }}dB "
+              level: info
+              logger: rgb_light_strip_level
+          - service: remote.send_command
+            data:
+              entity_id: remote.irblaster_remote
+              device: rgb_light_strip
+              command: "{% if trigger.to_state.state|int > trigger.from_state.state|int %}Bright{% else %}Dim{% endif %}"
+          - delay: 0.25
+      set_white_value:
+        service: remote.send_command
+        data:
+          entity_id: remote.irblaster_remote
+          device: rgb_light_strip
+          command: White
+      # color_template: "({{ states('input_number.rgb_light_strip_hue') | int }}, {{ states('input_number.rgb_light_strip_saturation') | int }})"
+      color_template: ({{ states("input_number.rgb_light_strip_hue") }}, {{ states("input_number.rgb_light_strip_saturation") }})
+      set_color:
+        service: remote.send_command
+        data:
+          entity_id: remote.irblaster_remote
+          device: rgb_light_strip
+          command: >-
+            "{% if 0 <= h <= 127 %}Blue{% elif 128 <= h <=255 %}Red{% endif %}"
