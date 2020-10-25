@@ -23,7 +23,7 @@
       option: Auxillary
 
 - id: hd_tv_on
-  alias: Samsung TV switched on
+  alias: Samsung TV switched on and no active casting
   trigger:
     entity_id: media_player.samsung_ua65hu9000
     platform: state
@@ -48,11 +48,13 @@
       option: Optical 2
 
 - id: hk_tv_off_casting_off
-  alias: Samsung TV switched off and no casting for 10s
+  alias: Samsung TV switched off for 10s and no casting for 10s
   trigger:
     entity_id: media_player.samsung_ua65hu9000
     platform: state
     to: "off"
+    for:
+      seconds: 10
   condition:
     condition: state
     entity_id: 'media_player.harman_kardon_avr'
@@ -65,11 +67,13 @@
       entity_id: input_boolean.smsl_power
 
 - id: hk_casting_off_tv_off
-  alias: Harman Kardon AVR casting switched off and TV off
+  alias: Harman Kardon AVR casting switched off for 10s and TV off for 10s
   trigger:
     entity_id: media_player.harman_kardon_avr
     platform: state
     to: 'off'
+    for:
+      seconds: 10
   condition:
     condition: state
     entity_id: 'media_player.samsung_ua65hu9000'
