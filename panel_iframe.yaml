@@ -34,6 +34,12 @@ z2massistant:
   icon: mdi:hubspot
   require_admin: true
 
+zoneminder:
+  title: Zoneminder
+  url: https://webb.kiwi.nz/zm
+  icon: mdi:cctv
+  require_admin: true
+
 # 'X-Frame-Options' is to 'deny'.
 # adminer:
 #   title: Adminer
