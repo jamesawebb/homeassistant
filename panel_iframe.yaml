@@ -4,6 +4,12 @@ esphome:
   icon: mdi:cpu-32-bit
   require_admin: true
 
+nodered:
+  title: Node-red
+  url: https://webb.kiwi.nz/local/nodered/
+  icon: mdi:nodejs
+  require_admin: true
+
 vscode:
   title: Code-server
   url: https://webb.kiwi.nz/local/code
