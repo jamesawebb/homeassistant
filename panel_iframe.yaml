@@ -1,38 +1,26 @@
-esphome:
-  title: ESP Home
-  url: https://webb.kiwi.nz/local/esphome/
-  icon: mdi:cpu-32-bit
-  require_admin: true
+# esphome:
+#   title: ESP Home
+#   url: https://webb.kiwi.nz/local/esphome/
+#   icon: mdi:cpu-32-bit
+#   require_admin: true
 
-nodered:
-  title: Node-red
-  url: https://webb.kiwi.nz/local/nodered/
-  icon: mdi:nodejs
-  require_admin: true
+# nodered:
+#   title: Node-red
+#   url: https://webb.kiwi.nz/local/nodered/
+#   icon: mdi:nodejs
+#   require_admin: true
 
-vscode:
-  title: Code-server
-  url: https://webb.kiwi.nz/local/code
-  icon: mdi:code-braces
-  require_admin: true
+# vscode:
+#   title: Code-server
+#   url: https://webb.kiwi.nz/local/code
+#   icon: mdi:code-braces
+#   require_admin: true
 
-portainer:
-  title: Portainer
-  url: https://webb.kiwi.nz/local/portainer
-  icon: mdi:docker
-  require_admin: true
-
-grafana:
-  title: Grafana
-  url: https://webb.kiwi.nz/local/grafana
-  icon: mdi:monitor-dashboard
-  require_admin: true
-
-pihole:
-  title: Pihole
-  url: https://webb.kiwi.nz/local/pihole
-  icon: mdi:dns
-  require_admin: true
+# grafana:
+#   title: Grafana
+#   url: https://webb.kiwi.nz/local/grafana
+#   icon: mdi:monitor-dashboard
+#   require_admin: true
 
 z2massistant:
   title: Zigbee→MQTT
@@ -40,15 +28,8 @@ z2massistant:
   icon: mdi:hubspot
   require_admin: true
 
-zoneminder:
-  title: Zoneminder
-  url: https://webb.kiwi.nz/zm
-  icon: mdi:cctv
-  require_admin: true
-
-# 'X-Frame-Options' is to 'deny'.
-# adminer:
-#   title: Adminer
-#   url: http://sniper.lan:8080/
-#   icon: mdi:database
+# zoneminder:
+#   title: Zoneminder
+#   url: https://webb.kiwi.nz/zm
+#   icon: mdi:cctv
 #   require_admin: true
