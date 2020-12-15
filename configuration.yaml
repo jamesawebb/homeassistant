@@ -113,10 +113,10 @@ sonoff:
 
 sun:
 
-weather:
-  - platform: bom
-    station: IDN60901.94759
-    name: Terrey Hills
+#weather:
+#  - platform: bom
+#    station: IDN60901.94759
+#    name: Terrey Hills
 
 # Cf. https://www.home-assistant.io/integrations/airvisual/
 airvisual:
