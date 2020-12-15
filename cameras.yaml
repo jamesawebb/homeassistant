@@ -26,11 +26,11 @@
 # - platform: onvif
 #   host: 192.168.86.246
 
+
 # ================
 # Third-party
 # ================
 
-- platform: bom
-  name: Sydney
-  location: Sydney
-
+# - platform: bom
+#   name: Sydney
+#   location: Sydney
