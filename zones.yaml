@@ -7,22 +7,9 @@
   longitude: 151.1727114
   icon: mdi:school
 
-- name: Marist
-  latitude: -33.8314201
-  longitude: 151.2076396
-  radius: 65
-  icon: mdi:school
-
-- name: TAFE
-  latitude: -33.821433
-  longitude: 151.187914
-  radius: 150
-  icon: mdi:school
-
-- name: NIDA
-  latitude: -33.9159311
-  longitude: 151.2255485
-  radius: 150
+- name: Macquarie University
+  latitude: -33.7770817
+  longitude: 151.1158239
   icon: mdi:school
 
 #------------------------------
