@@ -89,9 +89,9 @@ light: !include light.yaml
 #     # password: !secret basic
 
 switch:
-  - platform: broadlink
-    mac: "C8:F7:42:16:BC:E8"
-    # switches: !include broadlink.yaml
+  # - platform: broadlink
+  #   mac: "C8:F7:42:16:BC:E8"
+  #   # switches: !include broadlink.yaml
 
   - platform: template
     switches:
@@ -308,6 +308,9 @@ timer:
   arrived_home:
     name: Frontdoor unlock remaining
     duration: 180
+  depart_hornsby:
+    name: Person departed Hornsby
+    duration: 10
 
 
 # ================
