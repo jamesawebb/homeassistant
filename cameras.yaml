@@ -1,27 +1,27 @@
 - platform: generic
-  stream_source: rtsp://admin:@192.168.86.179:554/
-  still_image_url: http://admin@192.168.86.179:554/snapshot
-  name: garage  # 30:4A:26:C5:DB:1C
-
-- platform: generic
-  stream_source: rtsp://admin@192.168.86.186:554/
-  still_image_url: http://admin:@192.168.86.186:554/snapshot
+  stream_source: rtsp://admin@192.168.86.90:554/
+  still_image_url: http://admin:@192.168.86.90:554/snapshot
   name: lounge  # 30:4A:26:C9:2D:04
 
 - platform: generic
-  stream_source: rtsp://admin@192.168.86.178:554/
-  still_image_url: http://admin:@192.168.86.178:554/snapshot
-  name: outside  # 1C:BF:CE:A3:63:5F
+  stream_source: rtsp://admin:@192.168.86.91:554/
+  still_image_url: http://admin@192.168.86.91:554/snapshot
+  name: garage  # 30:4A:26:C5:DB:1C
 
 - platform: generic
-  stream_source: rtsp://admin:@192.168.86.188:554/
-  still_image_url: http://admin@192.168.86.188:554/snapshot
+  stream_source: rtsp://admin:@192.168.86.92:554/
+  still_image_url: http://admin@192.168.86.92:554/snapshot
   name: dining  # 30:4A:26:C6:A4:2E
 
 - platform: generic
-  stream_source: https://s42.ipcamlive.com/streams/2ankfvnmtmrgzgaev/stream.m3u8
-  still_image_url: https://www.cbas-seven.com/refresh/camshots/KIRR_1056A.jpg
-  name: sydney_harbour
+  stream_source: rtsp://admin@192.168.86.93:554/
+  still_image_url: http://admin:@192.168.93.120:554/snapshot
+  name: outside  # 1C:BF:CE:A3:63:5F
+
+# - platform: generic
+#   stream_source: https://s42.ipcamlive.com/streams/2ankfvnmtmrgzgaev/stream.m3u8
+#   still_image_url: https://www.cbas-seven.com/refresh/camshots/KIRR_1056A.jpg
+#   name: sydney_harbour
 
 # - platform: generic
 #   stream_source: rtsp://jaw:cadbury@192.168.86.246:8080/h264_ulaw.sdp
