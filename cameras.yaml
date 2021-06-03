@@ -14,22 +14,14 @@
   name: dining  # 30:4A:26:C6:A4:2E
 
 - platform: generic
-  stream_source: rtsp://admin@192.168.86.93:554/
-  still_image_url: http://admin:@192.168.93.120:554/snapshot
-  name: outside  # 1C:BF:CE:A3:63:5F
+  stream_source: rtsp://frigate:8r1TTany@192.168.86.93:554/H264/ch1/main/av_stream
+  still_image_url: https://cameras.webb.kiwi.nz/api/outside/latest.jpg
+  name: outside  # 08:a1:89:48:56:eb
 
-# - platform: generic
-#   stream_source: https://s42.ipcamlive.com/streams/2ankfvnmtmrgzgaev/stream.m3u8
-#   still_image_url: https://www.cbas-seven.com/refresh/camshots/KIRR_1056A.jpg
-#   name: sydney_harbour
-
-# - platform: generic
-#   stream_source: rtsp://jaw:cadbury@192.168.86.246:8080/h264_ulaw.sdp
-#   still_image_url: http://jaw:cadbury@192.168.86.246:8080/snapshot
-#   name: stove_ulaw
-
-# - platform: onvif
-#   host: 192.168.86.246
+- platform: generic
+  stream_source: rtsp://admin:8r1TTany@192.168.86.94:554/H264/ch1/main/av_stream
+  still_image_url: https://cameras.webb.kiwi.nz/api/front/latest.jpg
+  name: front  # 08:a1:89:48:56:76
 
 
 # ================
