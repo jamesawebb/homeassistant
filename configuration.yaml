@@ -13,6 +13,12 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.86.0/24
+    - 172.16.0.0/12
+
 logger:
   default: info
 
@@ -50,11 +56,8 @@ script: !include scripts.yaml
 # Geolocation
 # ================
 
-# person: !include person.yaml
 zone: !include zones.yaml
 device_tracker: !include device_tracker.yaml
-
-#owntracks:
 
 geo_location:
   - platform: nsw_rural_fire_service_feed
@@ -143,15 +146,6 @@ sun:
 #    station: IDN60901.94759
 #    name: Terrey Hills
 
-# Cf. https://www.home-assistant.io/integrations/airvisual/
-airvisual:
-  api_key: !secret airvisual-key
-  #monitored_conditions:
-  #  - us
-  #city: hornsby
-  #state: new-south-wales
-  #country: australia
-
 tts:
   - platform: google_translate
 
@@ -168,14 +162,14 @@ influxdb:
   # username: !secret influxdb_user
   # password: !secret master3
   # Version 2.x
-  token: !secret invlusdb_ha_token
+  token: !secret invluxdb_ha_token
   organization: !secret influxdb_org_id
   bucket: ha
   max_retries: 3
   default_measurement: state
+  #default_measurement: units
   tags:
     source: homeassistant
-  default_measurement: units
   # exclude:
   #   entities:
   #     - zone.home
@@ -200,10 +194,6 @@ google:
 spotify:
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_secret
-
-# zoneminder:
-#   host: localhost:8443
-#   ssl: true
 
 
 # ================
@@ -320,8 +310,8 @@ timer:
 # Cf. https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger
 webhook:
 
-shell_command:
-  motion_on: 'curl http://sniper.lan:7999/1/detection/start'
-  motion_off: 'curl http://sniper.lan:7999/1/detection/pause'
+# shell_command:
+#   motion_on: 'curl http://sniper.lan:7999/1/detection/start'
+#   motion_off: 'curl http://sniper.lan:7999/1/detection/pause'
 
 panel_iframe: !include panel_iframe.yaml
