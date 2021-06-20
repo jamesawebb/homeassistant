@@ -50,45 +50,44 @@
 #     protocol: ctl  # ctl, ws, ctl_beta, ctl_qled
 
 
-- platform: universal
-  name: SMSL AD18 Hi-Fi
-  # children:
-  #   - media_player.harman_kardon_avr
-  commands:
-    turn_on:
-      service: remote.send_command
-      data:
-        entity_id: remote.irblaster_remote
-        device: smsl
-        command: Power
-    turn_off:
-      service: remote.send_command
-      data:
-        entity_id: remote.irblaster_remote
-        device: smsl
-        command: Power
-    volume_up:
-      service: remote.send_command
-      data:
-        entity_id: remote.irblaster_remote
-        device: smsl
-        command: Volume up
-    volume_down:
-      service: remote.send_command
-      data:
-        entity_id: remote.irblaster_remote
-        device: smsl
-        command: Volume down
-    volume_mute:
-      service: remote.send_command
-      data:
-        entity_id: remote.irblaster_remote
-        device: smsl
-        command: Mute
-  attributes:
-    state: input_boolean.smsl_power|state
-    is_volume_muted: input_boolean.smsl_mute|state
-    volume_level: input_number.smsl_volume|state
-    source: input_select.smsl_source|state
-    source_list: input_select.smsl_source|options
-
+# - platform: universal
+#   name: SMSL AD18 Hi-Fi
+#   # children:
+#   #   - media_player.harman_kardon_avr
+#   commands:
+#     turn_on:
+#       service: remote.send_command
+#       data:
+#         entity_id: remote.irblaster_remote
+#         device: smsl
+#         command: Power
+#     turn_off:
+#       service: remote.send_command
+#       data:
+#         entity_id: remote.irblaster_remote
+#         device: smsl
+#         command: Power
+#     volume_up:
+#       service: remote.send_command
+#       data:
+#         entity_id: remote.irblaster_remote
+#         device: smsl
+#         command: Volume up
+#     volume_down:
+#       service: remote.send_command
+#       data:
+#         entity_id: remote.irblaster_remote
+#         device: smsl
+#         command: Volume down
+#     volume_mute:
+#       service: remote.send_command
+#       data:
+#         entity_id: remote.irblaster_remote
+#         device: smsl
+#         command: Mute
+#   attributes:
+#     state: input_boolean.smsl_power|state
+#     is_volume_muted: input_boolean.smsl_mute|state
+#     volume_level: input_number.smsl_volume|state
+#     source: input_select.smsl_source|state
+#     source_list: input_select.smsl_source|options
