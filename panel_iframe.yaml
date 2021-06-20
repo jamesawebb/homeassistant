@@ -22,11 +22,11 @@
 #   icon: mdi:monitor-dashboard
 #   require_admin: true
 
-z2massistant:
-  title: Zigbee→MQTT
-  url: https://webb.kiwi.nz/local/z2ma
-  icon: mdi:hubspot
-  require_admin: true
+# z2massistant:
+#   title: Zigbee→MQTT
+#   url: https://webb.kiwi.nz/local/z2ma
+#   icon: mdi:hubspot
+#   require_admin: true
 
 # zoneminder:
 #   title: Zoneminder
